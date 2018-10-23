@@ -25,10 +25,10 @@ src
 │   ├── create                        // 添加帖子组件
 │   │   ├── index.js
 │   │   ├── store
-│   │   │   ├── actionCreators.js
-│   │   │   ├── actionTypes.js
-│   │   │   ├── index.js
-│   │   │   └── reducer.js
+│   │   │   ├── actionCreators.js     // 提交 action
+│   │   │   ├── actionTypes.js        // 定义的 action types 常量
+│   │   │   ├── index.js              // 导出 actionCreators actionTypes reducer
+│   │   │   └── reducer.js            // 处理数据
 │   │   └── style.js
 │   ├── detail                        // 帖子详情组件
 │   │   ├── index.js
@@ -83,10 +83,10 @@ src
 │   ├── home.png
 │   ├── message.png
 │   └── mine.png
-├── store                             // store
-│   ├── index.js
-│   └── reducer.js
-├── style.js                          //  全局样式
+├── store                             // redux
+│   ├── index.js                      // store
+│   └── reducer.js                    // 导入各个组件的reducer并合成一个reducer
+├── style.js                          // 全局样式
 └── utils                             // 工具函数
     └── index.js
 ```
