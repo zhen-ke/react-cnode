@@ -1,0 +1,1 @@
+export const GET_TOPIC = 'get_tipic'

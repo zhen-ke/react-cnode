@@ -1,0 +1,1 @@
+export const CHANGE_CREATE_STATE = 'create_state'
