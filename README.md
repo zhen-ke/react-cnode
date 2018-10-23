@@ -1,4 +1,6 @@
 # react-cnode
+
+### 项目说明
 基于 react + react-router + redux + styled-components + ES6 的 React 版 cnode 社区
 
 ### demo
