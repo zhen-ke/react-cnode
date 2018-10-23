@@ -4,18 +4,11 @@
 ### demo
  [demo](http://xmit.coding.me/react-cnode)
 
-### 下载
-```
-  git clone https://github.com/zhen-ke/react-cnode.git
-  cd react-cnode
-  npm install (安装依赖模块)
-```
+### 项目截图
 
-### 运行
-```
-  npm start (开发版本访问：http://localhost:3000/)
-  npm run build （发布生产版本）
-```
+![screenshot1](./screenshot/screenshot_1.png)
+![screenshot2](./screenshot/screenshot_2.png)
+
 ### 功能
 ```
   1.登录
@@ -24,3 +17,16 @@
   4.个人中心
   5.查看其它人的资料
 ```
+
+### 构建应用
+``` bash
+# install dependencies
+npm install
+
+# serve with hot reload at localhost:9080
+npm run dev
+
+# build electron application for production
+npm run build
+```
+
