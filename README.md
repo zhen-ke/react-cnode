@@ -101,12 +101,12 @@ src
 
 ### 构建应用
 ``` bash
-# install dependencies
+# 安装依赖
 npm install
 
-# serve with hot reload at localhost:9080
+# 热加载服务运行在 localhost:3000
 npm start
 
-# build electron application for production
+# 打包项目（打包完成后项目会存放到build目录下）
 npm run build
 ```
