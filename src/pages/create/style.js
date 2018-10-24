@@ -2,10 +2,12 @@ import styled from 'styled-components'
 
 export const CreateWrapper = styled.div`
   background: #fff;
+  margin-top: .8rem;
   .confirm {
     padding: .2rem;
     border: 0;
     background:#fff;
+    border-bottom: 1px solid #e5e5e5;
   }
 `
 export const CreateItem = styled.div`

@@ -6,6 +6,7 @@ import { formatDate } from './../../utils'
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from './../../common/loading'
 import Header from './../header'
+import Footer from './../footer'
 import { Link } from 'react-router-dom'
 
 class Topic extends PureComponent {
@@ -35,14 +36,14 @@ class Topic extends PureComponent {
             <TopicList>
               {newTopicList.map((it, index) => {
                 return (
-                  <Link to={'/detail/' + it.id} key={index}>
-                    <TopicItem>
+                  <TopicItem key={index}>
+                    <Link to={'/detail/' + it.id}>
                       <TopicIMedia>
                         <img className="author" src={it.author.avatar_url} alt="author" />
                       </TopicIMedia>
                       <TopicIContent>
                         <h4 className="title">
-                        {/* {it.top ? (<span className="top">置顶</span>) : } */}
+                          {/* {it.top ? (<span className="top">置顶</span>) : } */}
                           {it.top || tab === 'good' ? (<span className="top">置顶</span>) : <span>{this.state.tab[it.tab]}</span>}
                           {it.title}</h4>
                         <TopicIContentFooter>
@@ -56,12 +57,14 @@ class Topic extends PureComponent {
                           </TopicIContentFooterRight>
                         </TopicIContentFooter>
                       </TopicIContent>
-                    </TopicItem>
-                  </Link>)
+
+                    </Link>
+                  </TopicItem>)
               })}
             </TopicList>
           </InfiniteScroll>
         </TopicWrapper>
+        <Footer></Footer>
       </Fragment>
     )
   }

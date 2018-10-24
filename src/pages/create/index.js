@@ -3,6 +3,8 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import { CreateWrapper, CreateItem, CreateInput, CreateTextarea } from './style'
+import Footer from './../footer'
+import TopNav from './../topnav'
 
 class Create extends PureComponent {
   constructor(props) {
@@ -17,6 +19,7 @@ class Create extends PureComponent {
     if (loginState) {
       return (
         <CreateWrapper>
+          <TopNav title={'创建主题'}></TopNav>
           <form>
             <CreateItem className="item">
               <label>
@@ -41,6 +44,7 @@ class Create extends PureComponent {
             </CreateItem>
             <CreateInput type="button" value="提交" className="confirm" onClick={() => { handleConfirm(this.state.value, this.title, this.content) }}></CreateInput>
           </form>
+          <Footer></Footer>
         </CreateWrapper>
       )
     } else {

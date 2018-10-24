@@ -1,11 +1,19 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent ,Fragment} from 'react'
 import { Redirect } from 'react-router-dom'
+import User from './../user'
+import Footer from './../footer'
 
 class Mine extends PureComponent {
   render() {
     let loginState = localStorage.user
     if(loginState) {
-      return  <Redirect to={'/user/' + JSON.parse(localStorage.user).loginname} />
+      return (
+        <Fragment>
+          <User mine={JSON.parse(localStorage.user).loginname}></User>
+          <Footer></Footer>
+        </Fragment>
+        
+      )
     }else {
       return <Redirect to='/login' />
     }

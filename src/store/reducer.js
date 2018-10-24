@@ -5,6 +5,7 @@ import { reducer as detail } from './../pages/detail/store'
 import { reducer as user } from './../pages/user/store'
 import { reducer as login } from './../pages/login/store'
 import { reducer as create } from './../pages/create/store'
+import { reducer as message } from './../pages/message/store'
 
 const reducer = combineReducers({
   header,
@@ -12,7 +13,8 @@ const reducer = combineReducers({
   detail,
   user,
   login,
-  create
+  create,
+  message
 })
 
 export default reducer

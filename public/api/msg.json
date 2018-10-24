@@ -1,0 +1,72 @@
+{
+  "success": true,
+  "data": {
+    "has_read_messages": [
+      {
+        "id": "5bd033b1af3d3a315eab028a",
+        "type": "reply",
+        "has_read": true,
+        "author": {
+          "loginname": "dixiaoping",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/19325626?v=4&s=120"
+        },
+        "topic": {
+          "id": "5bd03300b56c42645edb7c49",
+          "title": "123435345345345341234353453453453412343534534534534123435345345345341234353453453453412343534534534534",
+          "last_reply_at": "2018-10-24T09:04:52.202Z"
+        },
+        "reply": {
+          "id": "5bd033b1af3d3a315eab0289",
+          "content": "<div class=\"markdown-text\"><p>asdsdsds</p>\n</div>",
+          "ups": [],
+          "create_at": "2018-10-24T08:56:17.317Z"
+        },
+        "create_at": "2018-10-24T08:56:17.323Z"
+      },
+      {
+        "id": "5bd033b1af3d3a315eab028a",
+        "type": "reply",
+        "has_read": true,
+        "author": {
+          "loginname": "dixiaoping",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/19325626?v=4&s=120"
+        },
+        "topic": {
+          "id": "5bd03300b56c42645edb7c49",
+          "title": "123435345345345341234353453453453412343534534534534123435345345345341234353453453453412343534534534534",
+          "last_reply_at": "2018-10-24T09:04:52.202Z"
+        },
+        "reply": {
+          "id": "5bd033b1af3d3a315eab0289",
+          "content": "<div class=\"markdown-text\"><p>asdsdsds</p>\n</div>",
+          "ups": [],
+          "create_at": "2018-10-24T08:56:17.317Z"
+        },
+        "create_at": "2018-10-24T08:56:17.323Z"
+      }
+    ],
+    "hasnot_read_messages": [
+      {
+        "id": "5bd033b1af3d3a315eab028a",
+        "type": "reply",
+        "has_read": true,
+        "author": {
+          "loginname": "test",
+          "avatar_url": "https://avatars2.githubusercontent.com/u/19325626?v=4&s=120"
+        },
+        "topic": {
+          "id": "5bd03300b56c42645edb7c49",
+          "title": "12343534534534534",
+          "last_reply_at": "2018-10-24T09:04:52.202Z"
+        },
+        "reply": {
+          "id": "5bd033b1af3d3a315eab0289",
+          "content": "<div class=\"markdown-text\"><p>asdsdsds</p>\n</div>",
+          "ups": [],
+          "create_at": "2018-10-24T08:56:17.317Z"
+        },
+        "create_at": "2018-10-24T08:56:17.323Z"
+      }
+    ]
+  }
+}

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import { Redirect } from 'react-router-dom'
 import { LoginWrapper, Input, Button, LoginBack } from './style'
+import TopNav from './../topnav'
 
 class Login extends PureComponent {
   render() {
@@ -10,6 +11,7 @@ class Login extends PureComponent {
     if (!isLogined) {
       return (
         <LoginBack>
+          <TopNav title={'登录'}></TopNav>
           <LoginWrapper>
             <Input placeholder='accessToken' ref={(input) => { this.username = input }} />
             <Button onClick={() => { this.props.login(this.username) }}>登录</Button>

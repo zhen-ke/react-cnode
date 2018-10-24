@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'; // BrowserRoute
 import Topic from './pages/topic'
 import Detail from './pages/detail'
 import User from './pages/user'
-import Footer from './pages/footer'
 import Login from './pages/login'
 import Create from './pages/create'
 import Mine from './pages/mine'
@@ -26,7 +25,6 @@ class App extends Component {
               <Route path="/mine" component={Mine}></Route>
               <Route path="/message" component={Message}></Route>
             </Switch>
-            <Footer></Footer>
           </Fragment>
         </BrowserRouter>
       </Provider >

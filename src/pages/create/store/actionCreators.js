@@ -1,6 +1,6 @@
 import { actionTypes } from './index'
 import axios from 'axios'
-import { fromJS } from 'immutable';
+// import { fromJS } from 'immutable';
 
 export const handleConfirm = (type,title,content) => {
   return (dispatch) => {

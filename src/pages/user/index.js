@@ -4,6 +4,7 @@ import { UserWrapper, UserTitle, UserContent, UserContentList, UserContentItem, 
 import { actionCreators } from './store'
 import { formatDate } from './../../utils'
 import { Link } from 'react-router-dom'
+import TopNav from './../topnav'
 
 class User extends PureComponent {
   render() {
@@ -12,6 +13,7 @@ class User extends PureComponent {
       let newUserInfo = userInfo.toJS()
       return (
         <Fragment>
+          <TopNav title={'用户详情'}></TopNav>
           <UserInfo>
             <img src={newUserInfo.avatar_url} alt="avatar_url"/>
             <p className="user-name">{newUserInfo.loginname}</p>
@@ -44,10 +46,13 @@ class User extends PureComponent {
     }else {
       return null
     }
-
   }
   componentDidMount() {
-    this.props.getUserInfo(this.props.match.params.id)
+    try {
+      this.props.getUserInfo(this.props.match.params.id)
+    } catch (e) {
+      this.props.getUserInfo(this.props.mine) 
+    }
   }
 }
 

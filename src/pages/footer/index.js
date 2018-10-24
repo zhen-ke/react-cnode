@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { NavLink as Link} from 'react-router-dom'
 import { FooterWrapper, FooterItem } from './style'
 import home from './../../statics/home.png'
 import create from './../../statics/create.png'
@@ -10,7 +10,7 @@ const Footer = () => {
   return (
     <FooterWrapper>
       <FooterItem>
-        <Link to={'/'}><img src={home} alt="home" /><p>首页</p></Link>
+        <Link to={'/'} exact><img src={home} alt="home" /><p>首页</p></Link>
       </FooterItem>
       <FooterItem>
         <Link to={'/create'}><img src={create} alt="create" /><p>发表</p></Link>

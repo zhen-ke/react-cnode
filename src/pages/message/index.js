@@ -1,16 +1,66 @@
 import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
+import Footer from './../footer'
+import TopNav from './../topnav'
+import { MessageWrapper, MessageList, MessageItem, MessageItemLeft, MessageItemRight, MessageNothing } from './style'
+import { actionCreators } from './store'
+import { formatDate } from './../../utils'
 
 class Message extends PureComponent {
   render() {
     let loginState = localStorage.user
-    if(loginState) {
+    let { messageList } = this.props
+    let newMessageList = messageList.toJS()
+    console.log(newMessageList.has_read_messages)
+    if (loginState) {
       return (
-        <p>Message</p>
+        <MessageWrapper>
+          <TopNav title={'消息'}></TopNav>
+          {newMessageList.has_read_messages !== undefined ? (
+            <MessageList>
+              {(newMessageList && newMessageList.has_read_messages || []).map((it, index) => {
+                return (
+                  <MessageItem key={index}>
+                    <MessageItemLeft>
+                      <img src={it.author.avatar_url} alt="" />
+                    </MessageItemLeft>
+                    <MessageItemRight>
+                      <div className="item-hd">
+                        <span className="name">{it.author.loginname}</span>
+                        <span className="time">{formatDate(it.reply.create_at)}</span>
+                      </div>
+                      <div className="item-bd">回复了你的话题 {it.topic.title}</div>
+                    </MessageItemRight>
+                  </MessageItem>
+                )
+              })}
+            </MessageList>
+          ) : (<MessageNothing>暂无消息</MessageNothing>)}
+          <Footer></Footer>
+        </MessageWrapper>
       )
-    }else {
+    } else {
       return <Redirect to='/login' />
     }
   }
+  componentDidMount() {
+    this.props.getMessage()
+  }
 }
-export default Message
+
+const mapState = (state) => {
+  return {
+    messageList: state.getIn(['message', 'messageList'])
+  }
+}
+
+const mapDispatch = (dispatch) => {
+  return {
+    getMessage() {
+      dispatch(actionCreators.getMessage())
+    }
+  }
+}
+
+export default connect(mapState, mapDispatch)(Message)

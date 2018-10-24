@@ -10,13 +10,15 @@ export const TopicItem = styled.li`
   margin: 0 0 .1rem;
   padding: .15rem;
   background-color: #fff;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  align-items: stretch;
-  align-content: stretch;
-  overflow: hidden;
+  a {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    align-content: stretch;
+    overflow: hidden;
+  }
 `
 export const TopicIMedia = styled.div`
   display: flex;

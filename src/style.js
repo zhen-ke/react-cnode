@@ -51,8 +51,8 @@ export const GlobalStyle = createGlobalStyle`
     font-family: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
     color: #333;
     font-size: .3rem;
-    background: #eee;
     padding-bottom: 1rem;
+    background: #eee;
   }
   a {
     text-decoration: none;

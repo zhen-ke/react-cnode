@@ -4,6 +4,7 @@ import { MianWrapper, MianContent, MianTitle, MianInfo, ReplyWrapper, ReplyConte
 import { actionCreators } from './store'
 import { formatDate } from './../../utils'
 import { Link } from 'react-router-dom'
+import TopNav from './../topnav'
 
 class Detail extends PureComponent {
   render() {
@@ -12,6 +13,7 @@ class Detail extends PureComponent {
       let newList = topicDetailList.toJS()
       return (
         <Fragment>
+          <TopNav title={'详情'}></TopNav>
           <MianWrapper >
             <MianTitle>
               {newList.title}

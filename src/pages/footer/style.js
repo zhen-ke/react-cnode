@@ -6,18 +6,21 @@ export const FooterWrapper = styled.div`
   right: 0;
   bottom: 0;
   background: #0096ff;
-  padding: .15rem;
   display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
 	justify-content: space-around;
 	align-items: stretch;
-	align-content: stretch;
+  align-content: stretch;
+  .active {
+    background: #0080ff;
+  }
 `
 
 export const FooterItem = styled.div`
   font-size: .22rem;
   text-align: center;
+  flex :1;
   img {
     width: .3rem;
     height: .3rem;
@@ -26,6 +29,8 @@ export const FooterItem = styled.div`
     margin-top: .05rem;
   }
   a {
+    padding: .15rem .2rem;
+    display: block;
     color: #fff;
   }
 `

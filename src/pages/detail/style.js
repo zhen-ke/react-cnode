@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 
 export const MianWrapper = styled.div`
-  margin: .1rem;
+  margin: 1rem .1rem .1rem;
   border-radius: .1rem;
   background: #fff;
 `
