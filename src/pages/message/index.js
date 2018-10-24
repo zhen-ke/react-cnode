@@ -45,7 +45,10 @@ class Message extends PureComponent {
     }
   }
   componentDidMount() {
-    this.props.getMessage()
+    let loginState = localStorage.user
+    if (loginState) {
+      this.props.getMessage()
+    }
   }
 }
 
