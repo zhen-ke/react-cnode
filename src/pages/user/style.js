@@ -40,7 +40,7 @@ export const UserWrapper = styled.div`
   background: #fff;
 `
 export const UserTitle = styled.div`
-  padding: .2rem;
+  padding: .3rem .2rem;
   background: #f6f6f6;
   border-radius: .1rem .1rem 0 0;
 `
@@ -53,14 +53,12 @@ export const UserContentList = styled.div`
 `
 export const UserContentItem = styled.div`
   border-bottom: 1px solid #e5e5e5;
-  padding: .2rem;
+  padding: .3rem .2rem;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
   &:last-child {
     border-bottom: 0;
   }
-  a {
-    display: inline-block;
-  }
+
 `
