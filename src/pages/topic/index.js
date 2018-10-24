@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { TopicWrapper, TopicList, TopicItem, TopicIMedia, TopicIContent, TopicIContentFooter, TopicIContentFooterLeft, TopicIContentFooterRight } from './style'
 import { actionCreators } from './../topic/store'
@@ -8,7 +8,7 @@ import Loading from './../../common/loading'
 import Header from './../header'
 import { Link } from 'react-router-dom'
 
-class Topic extends Component {
+class Topic extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {

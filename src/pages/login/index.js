@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import { Redirect } from 'react-router-dom'
 import { LoginWrapper, Input, Button, LoginBack } from './style'
 
-class Login extends Component {
+class Login extends PureComponent {
   render() {
     let { isLogined } = this.props
     if (!isLogined) {

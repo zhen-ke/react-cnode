@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { MianWrapper, MianContent, MianTitle, MianInfo, ReplyWrapper, ReplyContent, ReplyList, ReplyItem } from './style'
 import { actionCreators } from './store'
 import { formatDate } from './../../utils'
 import { Link } from 'react-router-dom'
 
-class Detail extends Component {
+class Detail extends PureComponent {
   render() {
     let { topicDetailList } = this.props
     if (topicDetailList !== null) {

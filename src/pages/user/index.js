@@ -1,11 +1,11 @@
-import React, { Component, Fragment } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { UserWrapper, UserTitle, UserContent, UserContentList, UserContentItem, UserInfo } from './style'
 import { actionCreators } from './store'
 import { formatDate } from './../../utils'
 import { Link } from 'react-router-dom'
 
-class User extends Component {
+class User extends PureComponent {
   render() {
     let { userInfo } = this.props
     if (userInfo.size > 0) {

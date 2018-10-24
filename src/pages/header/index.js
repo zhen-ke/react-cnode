@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { connect } from 'react-redux'
 import { HeaderWrapper, NavList, NavItem } from './style'
 import { actionCreators } from './store'
 import { actionCreators as topicActionCreators } from './../topic/store'
 
-class Header extends Component {
+class Header extends PureComponent {
   render() {
     let { navList, changeTab } = this.props
     let newNavList = navList.toJS()

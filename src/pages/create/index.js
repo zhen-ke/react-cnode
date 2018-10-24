@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import { CreateWrapper, CreateItem, CreateInput, CreateTextarea } from './style'
 
-class Create extends Component {
+class Create extends PureComponent {
   constructor(props) {
     super(props);
     this.state = { value: '' };

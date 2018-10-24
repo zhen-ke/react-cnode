@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
 import { Redirect } from 'react-router-dom'
 
-class Message extends Component {
+class Message extends PureComponent {
   render() {
     let loginState = localStorage.user
     if(loginState) {
