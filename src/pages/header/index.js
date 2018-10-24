@@ -2,10 +2,11 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { HeaderWrapper, NavList, NavItem } from './style'
 import { actionCreators } from './store'
+import { actionCreators as topicActionCreators } from './../topic/store'
 
 class Header extends Component {
   render() {
-    let { navList, getTopic, page, limit } = this.props
+    let { navList, changeTab } = this.props
     let newNavList = navList.toJS()
     return (
       <HeaderWrapper>
@@ -13,31 +14,29 @@ class Header extends Component {
           {newNavList.map((it) => {
             return <NavItem
               key={it.type}
-              onClick={() => getTopic(it.type, page, limit)}
+              onClick={() => changeTab(it.type)}
             >{it.text}</NavItem>
           })}
         </NavList>
       </HeaderWrapper>
     )
   }
-  componentDidMount() {
-    //this.props.getTopic() // 获取首页数据
-  }
 }
 
 const mapState = (state) => {
   return {
     navList: state.getIn(['header', 'navList']),
-    page: state.getIn(['header', 'page']),
-    limit: state.getIn(['header', 'limit']),
   }
 }
 
 const mapDispatch = (dispatch) => {
   return {
-    getTopic(type, page, limit) {
+    changeTab(type) {
+      let page = 1,limit = 15
+      dispatch(topicActionCreators.clearTopicList([]))
+      dispatch(topicActionCreators.changePage(page))
       dispatch(actionCreators.changeTab(type))
-      dispatch(actionCreators.getTopic(type, 1,limit)) 
+      dispatch(topicActionCreators.getTopic(page, limit, type))
     }
   }
 }

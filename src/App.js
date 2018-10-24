@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Provider } from 'react-redux'
 import store from './store'
-import { HashRouter, Route, Switch } from 'react-router-dom'; // BrowserRouter
+import { BrowserRouter, Route, Switch } from 'react-router-dom'; // BrowserRouter HashRouter
 import Topic from './pages/topic'
 import Detail from './pages/detail'
 import User from './pages/user'
@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-        <HashRouter>
+        <BrowserRouter>
           <Fragment>
             <Switch>
               <Route path="/" exact component={Topic}></Route>
@@ -28,7 +28,7 @@ class App extends Component {
             </Switch>
             <Footer></Footer>
           </Fragment>
-        </HashRouter>
+        </BrowserRouter>
       </Provider >
     );
   }

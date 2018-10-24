@@ -25,24 +25,13 @@ const defaultState = fromJS({
       text: '招聘'
     },
   ],
-  topic: [],
-  page: 1, // 页数
-  limit: 10, // 主题分类
-  tab: 'all', // 每一页的主题数量
-  mdrender: false, // markdown
-  hasMoreItems: true
+  tab: 'all',
 })
 
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
-    case actionTypes.GET_TOPIC:
-      return state.set('topic', action.topic)
     case actionTypes.CHANGE_TAB:
-      return state.set('tab', action.data).set('page',1)
-    case actionTypes.CHANGE_HAS_MORE_STATE:
-      return state.set('hasMoreItems', action.data)
-    case actionTypes.LOAD_MORE:
-      return state.set('topic', state.get('topic').concat(action.data)).set('page',action.page)
+      return state.set('tab', action.data)
     default:
       return state
   }

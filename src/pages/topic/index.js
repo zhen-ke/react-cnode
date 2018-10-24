@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { TopicWrapper, TopicList, TopicItem, TopicIMedia, TopicIContent, TopicIContentFooter, TopicIContentFooterLeft, TopicIContentFooterRight } from './style'
-import { actionCreators as headerActionCreators } from './../header/store'
+import { actionCreators } from './../topic/store'
 import { formatDate } from './../../utils'
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from './../../common/loading'
@@ -21,7 +21,7 @@ class Topic extends Component {
     }
   }
   render() {
-    let { topicList, loadMore, page, hasMoreItems, tab } = this.props
+    let { getTopic, topicList, page, limit, tab, hasMore } = this.props
     let newTopicList = topicList.toJS()
     return (
       <Fragment>
@@ -29,8 +29,8 @@ class Topic extends Component {
         <TopicWrapper>
           <InfiniteScroll
             pageStart={1}
-            loadMore={() => loadMore(hasMoreItems, page, tab)}
-            hasMore={hasMoreItems}
+            loadMore={() => getTopic(hasMore, page, limit, tab)}
+            hasMore={hasMore}
             loader={<Loading key={0}></Loading>}>
             <TopicList>
               {newTopicList.map((it, index) => {
@@ -42,6 +42,7 @@ class Topic extends Component {
                       </TopicIMedia>
                       <TopicIContent>
                         <h4 className="title">
+                        {/* {it.top ? (<span className="top">置顶</span>) : } */}
                           {it.top || tab === 'good' ? (<span className="top">置顶</span>) : <span>{this.state.tab[it.tab]}</span>}
                           {it.title}</h4>
                         <TopicIContentFooter>
@@ -68,18 +69,19 @@ class Topic extends Component {
 
 const mapState = (state) => {
   return {
-    topicList: state.getIn(['header', 'topic']),
-    page: state.getIn(['header', 'page']),
-    hasMoreItems: state.getIn(['header', 'hasMoreItems']),
+    topicList: state.getIn(['topic', 'topicList']),
+    page: state.getIn(['topic', 'page']),
+    hasMore: state.getIn(['topic', 'hasMore']),
     tab: state.getIn(['header', 'tab']),
+    limit: state.getIn(['topic', 'limit'])
   }
 }
 
 const mapDispatch = (dispatch) => {
   return {
-    loadMore(hasMoreItems, page, tab) {
-      if (hasMoreItems) {
-        dispatch(headerActionCreators.loadMore(tab, page))
+    getTopic(hasMore, page, limit, tab) {
+      if (hasMore) {
+        dispatch(actionCreators.getTopic(page, limit, tab))
       }
     }
   }
