@@ -66,7 +66,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     getMessage() {
-      dispatch(actionCreators.getMessage())
+      dispatch(actionCreators.getMessageCount())
     }
   }
 }

@@ -2,7 +2,7 @@ import { actionTypes } from './index'
 import axios from 'axios'
 import { fromJS } from 'immutable';
 
-export const getMessage = (page, limit, tab) => {
+const getMessage = () => {
   return (dispatch) => {
     axios.get("https://cnodejs.org/api/v1/messages", {
       params: {
@@ -19,6 +19,20 @@ export const getMessage = (page, limit, tab) => {
       // }else {
       //   dispatch(changeHasMore(false))
       // }
+    }).catch(e => {
+      console.log(e)
+    })
+  }
+}
+
+export const getMessageCount = () => {
+  return (dispatch) => {
+    axios.get("https://cnodejs.org/api/v1/message/count", {
+      params: {
+        accesstoken: JSON.parse(localStorage.user).accesstoken
+      }
+    }).then(it => {
+      dispatch(getMessage())
     }).catch(e => {
       console.log(e)
     })
