@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const MessageWrapper = styled.div`
   margin-top: .8rem;
   font-size: .28rem;
-  line-height: 1;
   background: #fff;
 `
 
@@ -41,6 +40,7 @@ export const MessageItemRight = styled.div`
   align-content: stretch;
   overflow: hidden;
   .item-hd {
+    font-size: .26rem;
     .name {
       color: #0096ff;
     }
@@ -48,11 +48,17 @@ export const MessageItemRight = styled.div`
       color: #999;
       float: right;
     }
+    a {
+      color: #0096ff;
+    }
   }
   .item-bd {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    a {
+      color: #0096ff;
+    }
   }
 `
 

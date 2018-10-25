@@ -29,7 +29,7 @@ export const FooterItem = styled.div`
     margin-top: .05rem;
   }
   a {
-    padding: .15rem .2rem;
+    padding: .1rem .2rem;
     display: block;
     color: #fff;
   }

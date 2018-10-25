@@ -2,7 +2,7 @@ import React, { PureComponent } from 'react'
 import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
-import { CreateWrapper, CreateItem, CreateInput, CreateTextarea } from './style'
+import { CreateWrapper, CreateItem, CreateInput, CreateTextarea,CreateButton } from './style'
 import Footer from './../footer'
 import TopNav from './../topnav'
 
@@ -42,7 +42,7 @@ class Create extends PureComponent {
                 ref={(textarea) => { this.content = textarea }}
                 placeholder="内容字数 30 字以上"></CreateTextarea>
             </CreateItem>
-            <CreateInput type="button" value="提交" className="confirm" onClick={() => { handleConfirm(this.state.value, this.title, this.content) }}></CreateInput>
+            <CreateButton type="button" onClick={() => { handleConfirm(this.state.value, this.title, this.content) }}>提交</CreateButton>
           </form>
           <Footer></Footer>
         </CreateWrapper>
@@ -65,6 +65,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     handleConfirm(type, title, content) {
+      console.log(type, title, content)
       if (type === '') {
         alert('请选择发表类型')
       } else if (title.value.length < 10) {
@@ -73,6 +74,9 @@ const mapDispatch = (dispatch) => {
         alert('内容字数必须30字以上')
       } else {
         dispatch(actionCreators.handleConfirm(type, title.value, content.value))
+        type = ''
+        title.value = ''
+        content.value = ''
       }
     }
   }

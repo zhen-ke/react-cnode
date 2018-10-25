@@ -6,6 +6,7 @@ import TopNav from './../topnav'
 import { MessageWrapper, MessageList, MessageItem, MessageItemLeft, MessageItemRight, MessageNothing } from './style'
 import { actionCreators } from './store'
 import { formatDate } from './../../utils'
+import { Link } from 'react-router-dom'
 
 class Message extends PureComponent {
   render() {
@@ -22,14 +23,19 @@ class Message extends PureComponent {
                 return (
                   <MessageItem key={index}>
                     <MessageItemLeft>
-                      <img src={it.author.avatar_url} alt="" />
+                      <Link to={'/user/' + it.author.loginname}>
+                        <img src={it.author.avatar_url} alt="" />
+                      </Link>
                     </MessageItemLeft>
                     <MessageItemRight>
                       <div className="item-hd">
-                        <span className="name">{it.author.loginname}</span>
+                        <span className="name">
+                          <Link to={'/user/' + it.author.loginname}>
+                            {it.author.loginname}</Link>
+                        </span>
                         <span className="time">{formatDate(it.reply.create_at)}</span>
                       </div>
-                      <div className="item-bd">回复了你的话题 {it.topic.title}</div>
+                      <div className="item-bd">回复了你的话题 <Link to={'/detail/' + it.topic.id}>{it.topic.title}</Link></div>
                     </MessageItemRight>
                   </MessageItem>
                 )

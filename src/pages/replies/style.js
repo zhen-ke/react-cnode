@@ -28,9 +28,9 @@ export const RepliesButton = styled.button`
   color: #fff;
   background: #0096ff;
   margin-top: .2rem;
-  padding: .1rem .4rem;
+  padding: .14rem .4rem;
   border: 0;
-  font-size: .2rem;
+  font-size: .26rem;
   display: inline-block;
   float: right;
 `

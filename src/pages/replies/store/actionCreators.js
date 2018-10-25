@@ -12,16 +12,8 @@ export const sendReplies = (id, reply_id = '', content) => {
       reply_id
     })).then(it => {
       if (it.data.success) {
-        dispatch({
-          type: actionTypes.GET_MESSAGTE,
-          data: true
-        })
         dispatch(detailActionCreators.getTopicDetail(id))
       } else {
-        dispatch({
-          type: actionTypes.GET_MESSAGTE,
-          data: false
-        })
       }
     }).catch(e => {
       console.log(e)

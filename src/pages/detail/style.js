@@ -65,7 +65,7 @@ export const ReplyItem = styled.div`
     .content-hd {
       display: flex;
       justify-content: space-between;
-      font-size: .22rem;
+      font-size: .26rem;
       margin-bottom: .2rem;
       span.name {
         color: #0096ff;

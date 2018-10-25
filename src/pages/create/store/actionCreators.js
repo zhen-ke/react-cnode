@@ -20,6 +20,7 @@ export const handleConfirm = (type,title,content) => {
           type: actionTypes.CHANGE_CREATE_STATE,
           data: false
         })
+        alert('发表成功')
       }
     }).catch(e => {
       console.log(e)
