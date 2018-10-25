@@ -17,8 +17,29 @@ class Message extends PureComponent {
       return (
         <MessageWrapper>
           <TopNav title={'消息'}></TopNav>
-          {newMessageList.has_read_messages !== undefined ? (
+          {newMessageList.has_read_messages !== undefined  || newMessageList.hasnot_read_messages !== undefined  ? (
             <MessageList>
+              {(newMessageList && newMessageList.hasnot_read_messages || []).map((it, index) => {
+                return (
+                  <MessageItem key={index}>
+                    <MessageItemLeft>
+                      <Link to={'/user/' + it.author.loginname}>
+                        <img src={it.author.avatar_url} alt="" />
+                      </Link>
+                    </MessageItemLeft>
+                    <MessageItemRight>
+                      <div className="item-hd">
+                        <span className="name">
+                          <Link to={'/user/' + it.author.loginname}>
+                            {it.author.loginname}</Link>
+                        </span>
+                        <span className="time">{formatDate(it.reply.create_at)}</span>
+                      </div>
+                      <div className="item-bd">在话题 <Link to={'/detail/' + it.topic.id}>{it.topic.title}</Link>回复了你</div>
+                    </MessageItemRight>
+                  </MessageItem>
+                )
+              })}
               {(newMessageList && newMessageList.has_read_messages || []).map((it, index) => {
                 return (
                   <MessageItem key={index}>

@@ -16,72 +16,64 @@ class Detail extends PureComponent {
   }
   render() {
     let { topicDetailList } = this.props
-    if (topicDetailList !== null) {
-      let newList = topicDetailList.toJS()
-      return (
-        <Fragment>
-          <TopNav title={'详情'}></TopNav>
-          <MianWrapper >
-            <MianTitle>
-              {newList.title}
-            </MianTitle>
-            <MianInfo>
-              <span>发布于 {formatDate(newList.create_at)}</span>
-              <span>作者 {newList.author.loginname}</span>
-              <span>阅读 {newList.visit_count}</span>
-              <span>来自 {newList.tab}</span>
-            </MianInfo>
-            <MianContent
-              className="markdown-body"
-              dangerouslySetInnerHTML={{ __html: newList.content }}></MianContent>
-          </MianWrapper>
-          <ReplyWrapper>
-            <ReplyContent>全部回复（{newList.replies.length}）</ReplyContent>
-            {newList.replies.length ? (<ReplyList>
-              {newList.replies.map((it, index) => {
-                return (
-                  <ReplyItem key={index}>
-                    <div className="replyAvuthor">
-                      <Link to={'/user/' + it.author.loginname} >
-                        <img src={it.author.avatar_url} alt="avatar_url" />
-                      </Link>
+    let newList = topicDetailList.toJS()
+    if (JSON.stringify(newList) === '{}') return null
+    return (
+      <Fragment>
+        <TopNav title={'详情'}></TopNav>
+        <MianWrapper >
+          <MianTitle>
+            {newList.title}
+          </MianTitle>
+          <MianInfo>
+            <span>发布于 {formatDate(newList.create_at)}</span>
+            <span>作者 {newList.author.loginname}</span>
+            <span>阅读 {newList.visit_count}</span>
+            <span>来自 {newList.tab}</span>
+          </MianInfo>
+          <MianContent
+            className="markdown-body"
+            dangerouslySetInnerHTML={{ __html: newList.content }}></MianContent>
+        </MianWrapper>
+        <ReplyWrapper>
+          <ReplyContent>全部回复（{newList.replies.length}）</ReplyContent>
+          {newList.replies.length ? (<ReplyList>
+            {newList.replies.map((it, index) => {
+              return (
+                <ReplyItem key={index}>
+                  <div className="replyAvuthor">
+                    <Link to={'/user/' + it.author.loginname} >
+                      <img src={it.author.avatar_url} alt="avatar_url" />
+                    </Link>
+                  </div>
+                  <div className="replyContent">
+                    <div className="content-hd">
+                      <p>
+                        <span className="name">
+                          <Link to={'/user/' + it.author.loginname} >{it.author.loginname}</Link></span>
+                        {formatDate(it.create_at)}
+                      </p>
+                      <p className="r">
+                        <span className="replies" onClick={() => this.openReplies(index)}>回复</span>
+                        <span className="num"># {index + 1}</span>
+                      </p>
                     </div>
-                    <div className="replyContent">
-                      <div className="content-hd">
-                        <p>
-                          <span className="name">
-                            <Link to={'/user/' + it.author.loginname} >{it.author.loginname}</Link></span>
-                          {formatDate(it.create_at)}
-                        </p>
-                        <p className="r">
-                          <span className="replies" onClick={() => this.openReplies(index)}>回复</span>
-                          <span className="num"># {index + 1}</span>
-                        </p>
-                      </div>
-                      <p className="markdown-body" dangerouslySetInnerHTML={{ __html: it.content }}></p>
-                      {this.state.currIndex == index ? (
-                      <Replies 
-                        author={it.author.loginname} 
-                        id={newList.id} 
+                    <p className="markdown-body" dangerouslySetInnerHTML={{ __html: it.content }}></p>
+                    {this.state.currIndex == index ? (
+                      <Replies
+                        author={it.author.loginname}
+                        id={newList.id}
                         replyId={it.id}>
                       </Replies>) : null}
-                    </div>
-                  </ReplyItem>
-                )
-              })}
-            </ReplyList>) : <p className="noReply">暂无回复</p>}
-          </ReplyWrapper>
-          <Replies 
-            id={newList.id}
-            replyId={''}
-          >
-          ></Replies>
-        </Fragment>
-      )
-    } else {
-      return null
-    }
-
+                  </div>
+                </ReplyItem>
+              )
+            })}
+          </ReplyList>) : <p className="noReply">暂无回复</p>}
+        </ReplyWrapper>
+        <Replies id={newList.id} replyId={''}></Replies>
+      </Fragment>
+    )
   }
   componentDidMount() {
     this.props.getTopicDetail(this.props.match.params.id)

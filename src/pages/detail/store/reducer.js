@@ -2,7 +2,7 @@ import { actionTypes } from './index'
 import { fromJS } from 'immutable'
 
 const defaultState = fromJS({
-  topicDetailList: null
+  topicDetailList: {}
 })
 
 const reducer = (state = defaultState, action) => {
