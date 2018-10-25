@@ -2,6 +2,13 @@ import styled from 'styled-components'
 
 export const RepliesWrapper = styled.div`
   margin: .1rem;
+  .login {
+    padding: .2rem;
+    text-align: center;
+    a {
+      color: #0080ff;
+    }
+  }
 `
 
 export const RepliesTextarea = styled.textarea`

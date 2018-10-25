@@ -39,4 +39,5 @@ export const Button = styled.button`
   border: 0;
   width: 100%;
   font-size: .28rem;
+  box-sizing: border-box;
 `

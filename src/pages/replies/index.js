@@ -1,6 +1,7 @@
-import React, { PureComponent } from 'react'
+import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
+import { Link } from 'react-router-dom'
 import { RepliesWrapper, RepliesTextarea, RepliesButton } from './style'
 
 class Replies extends PureComponent {
@@ -11,10 +12,18 @@ class Replies extends PureComponent {
     let { handleConfirm, id, replyId, author } = this.props
     return (
       <RepliesWrapper>
-        <RepliesTextarea
-          ref={(textarea) => { this.content = textarea }}
-          placeholder={author ? '@' + author : '请输入回复内容'}></RepliesTextarea>
-        <RepliesButton onClick={() => { handleConfirm(id, replyId, author, this.content) }}>回复</RepliesButton>
+        {
+          localStorage.user ? (
+            <Fragment>
+              <RepliesTextarea
+                ref={(textarea) => { this.content = textarea }}
+                placeholder={author ? '@' + author : '请输入回复内容'}>
+              </RepliesTextarea>
+              <RepliesButton onClick={() => { handleConfirm(id, replyId, author, this.content) }}>回复</RepliesButton>
+            </Fragment>
+          ) : (<div className="login">你的丫先<Link to={'/login'} > 登录</Link> 才能发评论
+          </div>)
+        }
       </RepliesWrapper>
     )
   }
