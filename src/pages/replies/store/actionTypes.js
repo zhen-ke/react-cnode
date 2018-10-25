@@ -1,0 +1,1 @@
+export const GET_MESSAGTE = 'get_message'

@@ -74,6 +74,9 @@ export const ReplyItem = styled.div`
           color: #0096ff;
         }
       }
+      .replies {
+        margin-right: .2rem;
+      }
     }
   }
 `

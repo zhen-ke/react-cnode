@@ -5,8 +5,15 @@ import { actionCreators } from './store'
 import { formatDate } from './../../utils'
 import { Link } from 'react-router-dom'
 import TopNav from './../topnav'
+import Replies from './../replies'
 
 class Detail extends PureComponent {
+  constructor(props) {
+    super(props)
+    this.state = {
+      currIndex: -1
+    }
+  }
   render() {
     let { topicDetailList } = this.props
     if (topicDetailList !== null) {
@@ -43,23 +50,32 @@ class Detail extends PureComponent {
                       <div className="content-hd">
                         <p>
                           <span className="name">
-                          <Link to={'/user/' + it.author.loginname} >{it.author.loginname}</Link></span>
+                            <Link to={'/user/' + it.author.loginname} >{it.author.loginname}</Link></span>
                           {formatDate(it.create_at)}
                         </p>
                         <p className="r">
+                          <span className="replies" onClick={() => this.openReplies(index)}>回复</span>
                           <span className="num"># {index + 1}</span>
                         </p>
                       </div>
                       <p className="markdown-body" dangerouslySetInnerHTML={{ __html: it.content }}></p>
+                      {this.state.currIndex == index ? (
+                      <Replies 
+                        author={it.author.loginname} 
+                        id={newList.id} 
+                        replyId={it.id}>
+                      </Replies>) : null}
                     </div>
-
                   </ReplyItem>
                 )
               })}
-
             </ReplyList>) : <p className="noReply">暂无回复</p>}
-
           </ReplyWrapper>
+          <Replies 
+            id={newList.id}
+            replyId={''}
+          >
+          ></Replies>
         </Fragment>
       )
     } else {
@@ -69,6 +85,14 @@ class Detail extends PureComponent {
   }
   componentDidMount() {
     this.props.getTopicDetail(this.props.match.params.id)
+  }
+
+  openReplies(index) {
+    this.setState(() => {
+      return {
+        currIndex: index
+      }
+    })
   }
 }
 

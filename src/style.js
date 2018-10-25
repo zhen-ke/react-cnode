@@ -1,48 +1,107 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  html, body, div, span, applet, object, iframe,
-  h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-  a, abbr, acronym, address, big, cite, code,
-  del, dfn, em, img, ins, kbd, q, s, samp,
-  small, strike, strong, sub, sup, tt, var,
-  b, u, i, center,
-  dl, dt, dd, ol, ul, li,
-  fieldset, form, label, legend,
-  table, caption, tbody, tfoot, thead, tr, th, td,
-  article, aside, canvas, details, embed, 
-  figure, figcaption, footer, header, hgroup, 
-  menu, nav, output, ruby, section, summary,
-  time, mark, audio, video {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    font-size: 100%;
-    font: inherit;
-    vertical-align: baseline;
+  html{
+    -webkit-text-size-adjust:100%;
+    -ms-text-size-adjust:100%;
+    -webkit-tap-highlight-color:rgba(0,0,0,0);
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
   }
-  /* HTML5 display-role reset for older browsers */
-  article, aside, details, figcaption, figure, 
-  footer, header, hgroup, menu, nav, section {
-    display: block;
+  body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td,hr,button,article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
+    margin:0;
+    padding:0;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
   }
-  body {
-    line-height: 1;
+  article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{
+    display:block;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
   }
-  ol, ul {
-    list-style: none;
+  audio,canvas,video{
+    display:inline-block;
+    *display:inline;
+    *zoom:1;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
   }
-  blockquote, q {
-    quotes: none;
+  a div,a p,a h1,a h2,a h3,a h4,a h5,a h6{
+    *cursor:pointer;
   }
-  blockquote:before, blockquote:after,
-  q:before, q:after {
-    content: '';
-    content: none;
+  body,button,input,select,textarea{
+    font:12px/1.5 tahoma,arial,sans-serif;
   }
-  table {
-    border-collapse: collapse;
-    border-spacing: 0;
+  h1,h2,h3,h4,h5,h6{
+    font-size:1em;
+  }
+  a{
+    text-decoration:none;
+  }
+  @media screen and (-ms-high-contrast:active),(-ms-high-contrast:none){
+    a:active{
+      background-color:transparent;
+    }
+  }
+  a:active{
+    outline:0 none;
+  }
+  small,cite,code,em,th,i,b{
+    font-size:1em;
+    font-style:normal;
+    font-weight:500;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+  }
+  input,select,textarea,button{
+    font-size:1em;
+    -webkit-box-sizing:content-box;
+    -moz-box-sizing:content-box;
+    box-sizing:content-box;
+  }
+  button,input[type=button],input[type=submit]{
+    cursor:pointer;
+  }
+  button[disabled],input[disabled]{
+    cursor:default;
+  }
+  button::-moz-focus-inner,input::-moz-focus-inner{
+    border:0 none;
+    padding:0;
+  }
+  textarea{
+    overflow:auto;
+    vertical-align:top;
+  }
+  input[type=text]:focus,textarea:focus{
+    outline:0 none;
+  }
+  table{
+    border-collapse:collapse;
+    border-spacing:0;
+  }
+  fieldset,img,iframe{
+    border:0 none;
+  }
+  img{
+    display:inline-block;
+    vertical-align:bottom;
+    -ms-interpolation-mode:bicubic;
+  }
+  iframe{
+    display:block;
+  }
+  ul,ol{
+    list-style:none;
+  }
+  li{
+    vertical-align:top;
+  }
+  q:before,q:after{
+    content:'';
+  }
+  input,textarea,button{
+    -webkit-appearance: none;
   }
   html {
     font-size:calc(100vw / 7.5)
@@ -71,7 +130,7 @@ export const GithubMarkdownCss = createGlobalStyle`
   line-height: 1.5;
   color: #24292e;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: .26rem;
+  font-size: .28rem;
   line-height: 1.5;
   word-wrap: break-word;
 }

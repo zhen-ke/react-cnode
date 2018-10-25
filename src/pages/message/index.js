@@ -12,7 +12,6 @@ class Message extends PureComponent {
     let loginState = localStorage.user
     let { messageList } = this.props
     let newMessageList = messageList.toJS()
-    console.log(newMessageList.has_read_messages)
     if (loginState) {
       return (
         <MessageWrapper>
