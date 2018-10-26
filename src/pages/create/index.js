@@ -5,6 +5,7 @@ import { actionCreators } from './store'
 import { CreateWrapper, CreateItem, CreateInput, CreateTextarea,CreateButton } from './style'
 import Footer from './../../common/footer'
 import TopNav from './../../common/topnav'
+import { T } from 'react-toast-mobile';
 
 class Create extends PureComponent {
   constructor(props) {
@@ -65,13 +66,12 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     handleConfirm(type, title, content) {
-      console.log(type, title, content)
       if (type === '') {
-        alert('请选择发表类型')
+        T.notify('请选择发表类型')
       } else if (title.value.length < 10) {
-        alert('标题字数必须10字以上')
+        T.notify('标题字数必须10字以上')
       } else if (content.value.length < 30) {
-        alert('内容字数必须30字以上')
+        T.notify('内容字数必须30字以上')
       } else {
         dispatch(actionCreators.handleConfirm(type, title.value, content.value))
         type = ''

@@ -1,12 +1,11 @@
 import { actionTypes } from './index'
-import axios from 'axios'
+import axios from './../../../utils/http'
 import { fromJS } from 'immutable';
 
 export const getUserInfo = (id) => {
   return (dispatch) => {
-    axios.get("https://cnodejs.org/api/v1/user/" + id, {
+    axios.get("/user/" + id, {
       params: {
-        accesstoken: '',
         mdrender: true
       }
     }).then(it => {

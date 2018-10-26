@@ -1,21 +1,20 @@
 // import { actionTypes } from './index'
-import axios from 'axios'
+import axios from './../../../utils/http'
 // import { fromJS } from 'immutable';
-import qs from "qs";
 import { actionCreators as detailActionCreators } from './../../detail/store'
+import { T } from 'react-toast-mobile';
 
 export const sendReplies = (id, reply_id = '', content) => {
   return (dispatch) => {
-    axios.post(`https://cnodejs.org/api/v1/topic/${id}/replies`, qs.stringify({
-      accesstoken: JSON.parse(localStorage.user).accesstoken,
+    axios.post(`/topic/${id}/replies`, {
       content,
       reply_id
-    })).then(it => {
+    }).then(it => {
       if (it.data.success) {
         dispatch(detailActionCreators.getTopicDetail(id))
-      } else {
       }
     }).catch(e => {
+      T.notify('发表失败')
       console.log(e)
     })
   }

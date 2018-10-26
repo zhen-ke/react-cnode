@@ -1,10 +1,11 @@
 import { actionTypes } from './index'
-import axios from 'axios'
+import axios from './../../../utils/http'
 import { fromJS } from 'immutable';
+import { T } from 'react-toast-mobile';
 
 export const login = (value) => {
   return (dispatch) => {
-    axios.post("https://cnodejs.org/api/v1/accesstoken", {
+    axios.post("/accesstoken", {
       accesstoken: value
     }).then(it => {
       if (it.data.success) {
@@ -14,11 +15,11 @@ export const login = (value) => {
         })
         localStorage.user = JSON.stringify(Object.assign(it.data, { accesstoken: value }))
       } else {
-        alert('accessToken错误')
+        T.notify('accessToken错误')
       }
     }).catch(e => {
       console.log(e)
-      alert('accessToken错误')
+      T.notify('accessToken错误')
     })
   }
 }

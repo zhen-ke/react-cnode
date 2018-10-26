@@ -1,12 +1,11 @@
 import { actionTypes } from './index'
-import axios from 'axios'
+import axios from './../../../utils/http'
 import { fromJS } from 'immutable';
 
 export const getTopicDetail = (id) => {
   return (dispatch) => {
-    axios.get("https://cnodejs.org/api/v1/topic/" + id, {
+    axios.get("/topic/" + id, {
       params: {
-        accesstoken: '',
         mdrender: true
       }
     }).then(it => {

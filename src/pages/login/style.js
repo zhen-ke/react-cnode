@@ -11,7 +11,8 @@ export const LoginBack = styled.div`
 	flex-wrap: nowrap;
 	justify-content: center;
 	align-items: center;
-	align-content: stretch;
+  align-content: stretch;
+  z-index: -1;
 `
 export const LoginWrapper = styled.div`
   width: 5rem;  

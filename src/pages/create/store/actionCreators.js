@@ -1,28 +1,19 @@
 import { actionTypes } from './index'
-import axios from 'axios'
 // import { fromJS } from 'immutable';
+import axios from './../../../utils/http'
+import { T } from 'react-toast-mobile';
 
 export const handleConfirm = (type,title,content) => {
   return (dispatch) => {
-    axios.post("https://cnodejs.org/api/v1/topics", {
+    axios.post("/topics", {
       title,
       tab: type,
-      content,
-      accesstoken: JSON.parse(localStorage.user).accesstoken
+      content
     }).then(it => {
-      if (!it.data.success) {
-        dispatch({
-          type: actionTypes.CHANGE_CREATE_STATE,
-          data: true
-        })
-      }else {
-        dispatch({
-          type: actionTypes.CHANGE_CREATE_STATE,
-          data: false
-        })
-        alert('发表成功')
-      }
+      console.log(it)
+      T.notify('发表成功')
     }).catch(e => {
+      T.notify('发表失败')
       console.log(e)
     })
   }

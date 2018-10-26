@@ -1,5 +1,5 @@
 import { actionTypes } from './index'
-import axios from 'axios'
+import axios from './../../../utils/http'
 import { fromJS } from 'immutable';
 
 const loadMore = (data,page) => {
@@ -33,7 +33,7 @@ export const clearTopicList = (data) => {
 
 export const getTopic = (page, limit, tab) => {
   return (dispatch) => {
-    axios.get("https://cnodejs.org/api/v1/topics", {
+    axios.get("/topics", {
       params: {
         page,
         limit,

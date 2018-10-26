@@ -41,7 +41,7 @@ class Message extends PureComponent {
                   </MessageItem>
                 )
               })}
-              {newMessageList.has_read_messages.map((it, index) => {
+              {(newMessageList && newMessageList.has_read_messages || []).map((it, index) => {
                 return (
                   <MessageItem key={index}>
                     <MessageItemLeft>

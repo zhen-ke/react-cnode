@@ -4,7 +4,7 @@ import { TopicWrapper, TopicList, TopicItem, TopicIMedia, TopicIContent, TopicIC
 import { actionCreators } from './../topic/store'
 import { formatDate } from './../../utils'
 import InfiniteScroll from 'react-infinite-scroller';
-import Loading from './../../common/loading'
+// import Loading from './../../common/loading'
 import Header from './../header'
 import Footer from './../../common/footer'
 import { Link } from 'react-router-dom'
@@ -32,7 +32,7 @@ class Topic extends PureComponent {
             pageStart={1}
             loadMore={() => getTopic(hasMore, page, limit, tab)}
             hasMore={hasMore}
-            loader={<Loading key={0}></Loading>}>
+            >
             <TopicList>
               {newTopicList.map((it, index) => {
                 return (

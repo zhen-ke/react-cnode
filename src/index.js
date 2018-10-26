@@ -3,11 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.js';
 import App from './App';
 import { GlobalStyle,GithubMarkdownCss } from './style.js' // 添加全局样式
+import Toast from 'react-toast-mobile';
+import 'react-toast-mobile/lib/react-toast-mobile.css';
 import * as serviceWorker from './serviceWorker';
 
 const Apps = () => {
   return (
     <Fragment>
+      <Toast />
       <GlobalStyle />
       <GithubMarkdownCss/>
       <App />
