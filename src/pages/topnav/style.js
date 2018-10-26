@@ -18,6 +18,7 @@ export const TopNavWarpper = styled.div`
   align-content: stretch;
   font-size: .28rem;
   line-height: 1;
+  z-index: 999;
 `
 
 export const Back = styled.div`
