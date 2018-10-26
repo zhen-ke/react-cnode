@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import { Link } from 'react-router-dom'
 import { RepliesWrapper, RepliesTextarea, RepliesButton } from './style'
+import { T } from 'react-toast-mobile';
 
 class Replies extends PureComponent {
   render() {
@@ -37,7 +38,7 @@ const mapDispatch = (dispatch) => {
         }
         content.value = ''
       } else {
-        alert('回复内容不能为空')
+        T.notify('回复内容不能为空')
       }
     }
   }
