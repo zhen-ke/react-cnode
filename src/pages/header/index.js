@@ -16,9 +16,8 @@ class Header extends Component {
             return (
               <NavItem
                 key={it.type}
-                onClick={() => changeTab(it.type)}
-              >
-                <Link to={'/' + '?tab=' + it.type}>{it.text}</Link>
+                onClick={() => changeTab(it.type)}>
+                <Link to={'/?tab=' + it.type}>{it.text}</Link>
               </NavItem>
             )
           })}

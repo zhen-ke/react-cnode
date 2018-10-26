@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom'
 import { RepliesWrapper, RepliesTextarea, RepliesButton } from './style'
 
 class Replies extends PureComponent {
-  constructor(props) {
-    super(props)
-  }
   render() {
     let { handleConfirm, id, replyId, author } = this.props
     return (
@@ -33,7 +30,7 @@ const mapDispatch = (dispatch) => {
   return {
     handleConfirm(id, replyId, author, content) {
       if (content.value.length) {
-        if (replyId != '') {
+        if (replyId !== '') {
           dispatch(actionCreators.sendReplies(id, replyId, `[@${author}](/user/${author}) ${content.value}`))
         } else {
           dispatch(actionCreators.sendReplies(id, replyId, content.value))

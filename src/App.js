@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Provider } from 'react-redux'
 import store from './store'
-import { BrowserRouter, Route, Switch,Redirect } from 'react-router-dom'; // BrowserRouter HashRouter
+import { BrowserRouter, Route, Switch } from 'react-router-dom'; // BrowserRouter HashRouter
 import Topic from './pages/topic'
 import Detail from './pages/detail'
 import User from './pages/user'

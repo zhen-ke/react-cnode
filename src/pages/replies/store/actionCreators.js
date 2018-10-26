@@ -1,6 +1,6 @@
-import { actionTypes } from './index'
+// import { actionTypes } from './index'
 import axios from 'axios'
-import { fromJS } from 'immutable';
+// import { fromJS } from 'immutable';
 import qs from "qs";
 import { actionCreators as detailActionCreators } from './../../detail/store'
 

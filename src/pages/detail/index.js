@@ -59,7 +59,7 @@ class Detail extends PureComponent {
                       </p>
                     </div>
                     <p className="markdown-body" dangerouslySetInnerHTML={{ __html: it.content }}></p>
-                    {this.state.currIndex == index ? (
+                    {this.state.currIndex === index ? (
                       <Replies
                         author={it.author.loginname}
                         id={newList.id}

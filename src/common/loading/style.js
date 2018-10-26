@@ -23,7 +23,7 @@ export const Spinner = styled.div`
   margin-left: -.5rem;
 `
 
-export const Bounce_Top = styled.div`
+export const BounceTop = styled.div`
 width: 100%;
 height: 100%;
 border-radius: 50%;
@@ -36,7 +36,7 @@ left: 0;
 animation: ${bounce} 2s infinite ease-in-out;
 `
 
-export const Bounce_Bottom = styled.div`
+export const BounceBottom = styled.div`
 width: 100%;
 height: 100%;
 border-radius: 50%;

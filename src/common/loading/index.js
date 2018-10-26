@@ -1,11 +1,11 @@
 import React from 'react'
-import { Spinner,Bounce_Top,Bounce_Bottom} from './style'
+import { Spinner, BounceTop, BounceBottom } from './style'
 
 const Loading = () => {
   return (
     <Spinner>
-      <Bounce_Top></Bounce_Top>
-      <Bounce_Bottom></Bounce_Bottom>
+      <BounceTop></BounceTop>
+      <BounceBottom></BounceBottom>
     </Spinner>
   )
 }
