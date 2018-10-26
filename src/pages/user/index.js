@@ -1,6 +1,6 @@
 import React, { PureComponent, Fragment } from 'react'
 import { connect } from 'react-redux'
-import { UserWrapper, UserTitle, UserContent, UserContentList, UserContentItem, UserInfo } from './style'
+import { UserWrapper, UserTitle, UserContent, UserContentList, UserContentItem, UserInfo,UserContentNone } from './style'
 import { actionCreators } from './store'
 import { formatDate } from './../../utils'
 import { Link } from 'react-router-dom'
@@ -15,7 +15,7 @@ class User extends PureComponent {
         <Fragment>
           <TopNav title={'用户详情'}></TopNav>
           <UserInfo>
-            <img src={newUserInfo.avatar_url} alt="avatar_url"/>
+            <img src={newUserInfo.avatar_url} alt="avatar_url" />
             <p className="user-name">{newUserInfo.loginname}</p>
             <p className="more">
               <span>积分：{newUserInfo.score}</span>
@@ -23,27 +23,31 @@ class User extends PureComponent {
             </p>
           </UserInfo>
           <UserWrapper>
-            <UserTitle>主题</UserTitle>
+            <UserTitle>最近创建的话题</UserTitle>
             <UserContent>
-              <UserContentList>
-                {newUserInfo.recent_topics.map((it, index) => {
-                  return (<UserContentItem key={index}><Link to={'/detail/' + it.id} >{it.title}</Link></UserContentItem>)
-                })}
-              </UserContentList>
+              {newUserInfo.recent_topics.length ? (
+                <UserContentList>
+                  {newUserInfo.recent_topics.map((it, index) => {
+                    return (<UserContentItem key={index}><Link to={'/detail/' + it.id} >{it.title}</Link></UserContentItem>)
+                  })}
+                </UserContentList>
+              ) : (<UserContentNone>暂无话题</UserContentNone>)}
             </UserContent>
           </UserWrapper>
           <UserWrapper>
-            <UserTitle>回复</UserTitle>
-            <UserContentList> 
-              {newUserInfo.recent_replies.map((it, index) => {
-                return (
-                <UserContentItem key={index}><Link to={'/detail/' + it.id} >{it.title}</Link></UserContentItem>)
-              })}
-            </UserContentList>
+            <UserTitle>最近参与的话题</UserTitle>
+            {newUserInfo.recent_replies.length ? (
+              <UserContentList>
+                {newUserInfo.recent_replies.map((it, index) => {
+                  return (
+                    <UserContentItem key={index}><Link to={'/detail/' + it.id} >{it.title}</Link></UserContentItem>)
+                })}
+              </UserContentList>
+            ) : (<UserContentNone>暂无话题</UserContentNone>)}
           </UserWrapper>
         </Fragment>
       )
-    }else {
+    } else {
       return null
     }
   }
@@ -51,7 +55,7 @@ class User extends PureComponent {
     try {
       this.props.getUserInfo(this.props.match.params.id)
     } catch (e) {
-      this.props.getUserInfo(this.props.mine) 
+      this.props.getUserInfo(this.props.mine)
     }
   }
 }

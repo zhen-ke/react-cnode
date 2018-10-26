@@ -8,7 +8,7 @@ export const UserInfo = styled.div`
 	justify-content: center;
 	align-items: center;
 	align-content: stretch;
-  padding: 1rem .5rem;
+  padding: 1rem .5rem .5rem;
   color:#fff;
   img {
     width: 1.5rem;
@@ -60,5 +60,8 @@ export const UserContentItem = styled.div`
   &:last-child {
     border-bottom: 0;
   }
-
+`
+export const UserContentNone = styled.div`
+  padding: .2rem;
+  text-align: center;
 `
