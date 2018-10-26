@@ -18,7 +18,7 @@ export const FooterWrapper = styled.div`
 `
 
 export const FooterItem = styled.div`
-  font-size: .22rem;
+  font-size: .26rem;
   text-align: center;
   flex :1;
   img {

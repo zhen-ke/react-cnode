@@ -16,14 +16,23 @@ export const TopNavWarpper = styled.div`
 	justify-content: space-between;
 	align-items: center;
   align-content: stretch;
-  font-size: .28rem;
   line-height: 1;
   z-index: 999;
+  span {
+    flex: 1;
+    text-align: center;
+    &:first-child {
+      text-align: left;
+    }
+    &:last-child {
+      text-align: right;
+    }
+  }
 `
 
-export const Back = styled.div`
+export const Back = styled.span`
   width: .4rem;
   height: .4rem;
-  background: url(${back});
+  background: url(${back}) no-repeat;
   background-size: contain;
 `

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const ErrorWrapper = styled.div`
-  font-size: 2rem;
   font-weight: bold;
   display: flex;
 	flex-direction: row;

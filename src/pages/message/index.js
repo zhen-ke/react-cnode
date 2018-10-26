@@ -13,8 +13,8 @@ class Message extends PureComponent {
     let loginState = localStorage.user
     let { messageList } = this.props
     let newMessageList = messageList.toJS()
-    if (JSON.stringify(newMessageList) === '{}') return null
     if (loginState) {
+      if (JSON.stringify(newMessageList) === '{}') return null
       return (
         <MessageWrapper>
           <TopNav title={'消息'}></TopNav>
@@ -41,7 +41,7 @@ class Message extends PureComponent {
                   </MessageItem>
                 )
               })}
-              {(newMessageList && newMessageList.has_read_messages || []).map((it, index) => {
+              {newMessageList.has_read_messages.map((it, index) => {
                 return (
                   <MessageItem key={index}>
                     <MessageItemLeft>

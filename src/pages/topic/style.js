@@ -51,19 +51,18 @@ export const TopicIContent = styled.div`
     span {
       background-color: #e5e5e5;
       color: #999;
-      font-size: .2rem;
       display: inline-block;
       margin-right: .2rem;
-      padding: .06rem 0.1rem;
+      padding: .05rem 0.2rem;
       border-radius: .05rem;
+      font-size: .22rem;
     }
     .top {
-      background: #0096ff;
+      background: #ff4d41;
       color: #fff;
     }
   }
 `
-
 export const TopicIContentFooter = styled.div`
   display: flex;
   flex-direction: row;
@@ -72,7 +71,7 @@ export const TopicIContentFooter = styled.div`
   align-items: stretch;
   align-content: stretch;
   color: #888;
-  font-size: .24rem;
+  font-size: .26rem;
 `
 export const TopicIContentFooterLeft = styled.div`
   .time {

@@ -27,7 +27,6 @@ export const CreateButton = styled.button`
   background: #fff;
   padding: .2rem .4rem;
   border: 0;
-  font-size: .26rem;
   border-bottom: 1px solid #e5e5e5;
   display: block;
   width: 100%;

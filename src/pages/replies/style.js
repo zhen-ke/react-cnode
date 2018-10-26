@@ -19,7 +19,6 @@ export const RepliesTextarea = styled.textarea`
   border: .03rem solid #eee;
   border-radius: .1rem;
   padding: .2rem;
-  font-size: .28rem;
 `
 
 export const RepliesButton = styled.button`
@@ -30,7 +29,6 @@ export const RepliesButton = styled.button`
   margin-top: .2rem;
   padding: .14rem .4rem;
   border: 0;
-  font-size: .26rem;
   display: inline-block;
   float: right;
 `

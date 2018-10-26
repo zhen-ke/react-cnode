@@ -29,9 +29,9 @@ axios.interceptors.request.use(config => {
 
 // http response 拦截器
 axios.interceptors.response.use(response => {
-  T.loaded()
-  return response;
-},
+    T.loaded()
+    return response;
+  },
   error => {
     T.loaded()
     return Promise.reject(error)

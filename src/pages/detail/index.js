@@ -11,7 +11,13 @@ class Detail extends PureComponent {
   constructor(props) {
     super(props)
     this.state = {
-      currIndex: -1
+      currIndex: -1,
+      tab: {
+        good: '精华',
+        share: '分享',
+        ask: '问答',
+        job: '招聘',
+      }
     }
   }
   render() {
@@ -29,7 +35,7 @@ class Detail extends PureComponent {
             <span>发布于 {formatDate(newList.create_at)}</span>
             <span>作者 {newList.author.loginname}</span>
             <span>阅读 {newList.visit_count}</span>
-            <span>来自 {newList.tab}</span>
+            <span>来自 {this.state.tab[newList.tab]}</span>
           </MianInfo>
           <MianContent
             className="markdown-body"

@@ -36,11 +36,11 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
   return {
     changeTab(type) {
-      let page = 1, limit = 15
+      // let page = 1, limit = 15
       dispatch(topicActionCreators.clearTopicList([]))
-      dispatch(topicActionCreators.changePage(page))
+      dispatch(topicActionCreators.changePage(1))
       dispatch(actionCreators.changeTab(type))
-      dispatch(topicActionCreators.getTopic(page, limit, type))
+      // dispatch(topicActionCreators.getTopic(page, limit, type))
     }
   }
 }

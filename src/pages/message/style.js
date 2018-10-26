@@ -2,7 +2,6 @@ import styled from 'styled-components'
 
 export const MessageWrapper = styled.div`
   margin-top: .8rem;
-  font-size: .28rem;
   background: #fff;
 `
 
@@ -40,7 +39,6 @@ export const MessageItemRight = styled.div`
   align-content: stretch;
   overflow: hidden;
   .item-hd {
-    font-size: .26rem;
     .name {
       color: #0096ff;
     }

@@ -19,7 +19,6 @@ export const NavList = styled.ul`
   align-content: stretch;
 `
 export const NavItem = styled.li`
-  font-size: .3rem;
   text-align: center;
   font-weight: bold;
   line-height: .8rem;

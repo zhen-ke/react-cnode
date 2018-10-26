@@ -11,13 +11,27 @@ export const MianTitle = styled.h4`
   line-height: 1.4
 `
 export const MianInfo = styled.div`
+  font-size: .26rem;
   color: #838383;
-  font-size: .24rem;
   line-heihgt: 1;
   padding: 0 .15rem .3rem .15rem;
   font-weight: normal;
   span {
-    margin-right: .6em;
+    &:before {
+      content: '';
+      background: #999;
+      width: 4px;
+      height: 4px;
+      display: inline-block;
+      border-radius: 100%;
+      vertical-align: middle;
+      margin: 0 .15rem;
+    }
+    &:first-child {
+      &:before {
+        display: none;
+      }
+    }
   }
 `
 
@@ -60,16 +74,16 @@ export const ReplyItem = styled.div`
     }
   }
   .replyContent {
+    font-size: .26rem;
     width: 100%;
     overflow: hidden;
     .content-hd {
       display: flex;
       justify-content: space-between;
-      font-size: .26rem;
       margin-bottom: .2rem;
       span.name {
         color: #0096ff;
-        margin-right: .2rem;
+        margin-right: .1rem;
         a {
           color: #0096ff;
         }

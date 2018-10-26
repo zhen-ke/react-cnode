@@ -1,11 +1,8 @@
 import React, { PureComponent, Fragment } from 'react'
-import { TopNavWarpper, Back} from './style'
-import {withRouter} from 'react-router-dom'
+import { TopNavWarpper, Back } from './style'
+import { withRouter } from 'react-router-dom'
 
 class TopNav extends PureComponent {
-  //this.props.match.path = "/user/:id"
-  // /mine
-  // /detail/:id
   render() {
     let loginState = localStorage.user
     return (
@@ -19,7 +16,7 @@ class TopNav extends PureComponent {
     )
   }
 
-  goBack = () => {
+  goBack() {
     this.props.history.goBack();
   }
   quite() {

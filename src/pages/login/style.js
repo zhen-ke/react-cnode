@@ -12,7 +12,7 @@ export const LoginBack = styled.div`
 	justify-content: center;
 	align-items: center;
   align-content: stretch;
-  z-index: -1;
+  z-index: 0;
 `
 export const LoginWrapper = styled.div`
   width: 5rem;  
@@ -23,7 +23,6 @@ export const Input = styled.input`
   border: 1px solid #eee;
   width: 100%;
   padding: .2rem;
-  font-size: .28rem;
   line-height: 1;
   display: block;
   -webkit-appearance: none; 
@@ -39,6 +38,5 @@ export const Button = styled.button`
   padding: .2rem;
   border: 0;
   width: 100%;
-  font-size: .28rem;
   box-sizing: border-box;
 `

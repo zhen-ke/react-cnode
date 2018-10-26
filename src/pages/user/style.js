@@ -48,7 +48,6 @@ export const UserContent = styled.div`
 
 `
 export const UserContentList = styled.div`
-  font-size: .28rem;
   line-height: 1;
 `
 export const UserContentItem = styled.div`

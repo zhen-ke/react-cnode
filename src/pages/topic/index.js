@@ -24,6 +24,15 @@ class Topic extends PureComponent {
   render() {
     let { getTopic, topicList, page, limit, tab, hasMore } = this.props
     let newTopicList = topicList.toJS()
+    const Top = (it, tab) => {
+      if (it.top) {
+        return (<span className="top">置顶</span>)
+      } else if (tab === 'good') {
+        return (<span className="top">精华</span>)
+      } else {
+        return (<span>{this.state.tab[it.tab]}</span>)
+      }
+    }
     return (
       <Fragment>
         <Header></Header>
@@ -32,7 +41,7 @@ class Topic extends PureComponent {
             pageStart={1}
             loadMore={() => getTopic(hasMore, page, limit, tab)}
             hasMore={hasMore}
-            >
+          >
             <TopicList>
               {newTopicList.map((it, index) => {
                 return (
@@ -43,8 +52,7 @@ class Topic extends PureComponent {
                       </TopicIMedia>
                       <TopicIContent>
                         <h4 className="title">
-                          {/* {it.top ? (<span className="top">置顶</span>) : } */}
-                          {it.top || tab === 'good' ? (<span className="top">置顶</span>) : <span>{this.state.tab[it.tab]}</span>}
+                          {Top(it, tab)}
                           {it.title}</h4>
                         <TopicIContentFooter>
                           <TopicIContentFooterLeft>
@@ -57,7 +65,6 @@ class Topic extends PureComponent {
                           </TopicIContentFooterRight>
                         </TopicIContentFooter>
                       </TopicIContent>
-
                     </Link>
                   </TopicItem>)
               })}

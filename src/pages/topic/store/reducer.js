@@ -18,7 +18,7 @@ const reducer = (state = defaultState, action) => {
     case actionTypes.CLEAR_TOPIC_LIST:
       return state.set('topicList', action.data)
     case actionTypes.CHANGE_PAGE:
-      return state.set('page', action.data)
+      return state.set('page', action.data).set('topicList', fromJS([]))
     default:
       return state
   }
