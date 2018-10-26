@@ -1,6 +1,6 @@
 import React, { PureComponent ,Fragment} from 'react'
 import {ErrorWrapper} from './style'
-import TopNav from './../../pages/topnav'
+import TopNav from './../topnav'
 
 class ErrorPage extends PureComponent {
   render() {

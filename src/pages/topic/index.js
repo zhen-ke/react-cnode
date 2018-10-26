@@ -6,7 +6,7 @@ import { formatDate } from './../../utils'
 import InfiniteScroll from 'react-infinite-scroller';
 import Loading from './../../common/loading'
 import Header from './../header'
-import Footer from './../footer'
+import Footer from './../../common/footer'
 import { Link } from 'react-router-dom'
 
 class Topic extends PureComponent {

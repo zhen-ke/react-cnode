@@ -4,7 +4,7 @@ import { MianWrapper, MianContent, MianTitle, MianInfo, ReplyWrapper, ReplyConte
 import { actionCreators } from './store'
 import { formatDate } from './../../utils'
 import { Link } from 'react-router-dom'
-import TopNav from './../topnav'
+import TopNav from './../../common/topnav'
 import Replies from './../replies'
 
 class Detail extends PureComponent {

@@ -1,7 +1,7 @@
 import React, { PureComponent ,Fragment} from 'react'
 import { Redirect } from 'react-router-dom'
 import User from './../user'
-import Footer from './../footer'
+import Footer from './../../common/footer'
 
 class Mine extends PureComponent {
   render() {

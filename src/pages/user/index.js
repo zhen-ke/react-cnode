@@ -4,7 +4,7 @@ import { UserWrapper, UserTitle, UserContent, UserContentList, UserContentItem, 
 import { actionCreators } from './store'
 import { formatDate } from './../../utils'
 import { Link } from 'react-router-dom'
-import TopNav from './../topnav'
+import TopNav from './../../common/topnav'
 
 class User extends PureComponent {
   render() {

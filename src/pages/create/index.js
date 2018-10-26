@@ -3,8 +3,8 @@ import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import { CreateWrapper, CreateItem, CreateInput, CreateTextarea,CreateButton } from './style'
-import Footer from './../footer'
-import TopNav from './../topnav'
+import Footer from './../../common/footer'
+import TopNav from './../../common/topnav'
 
 class Create extends PureComponent {
   constructor(props) {

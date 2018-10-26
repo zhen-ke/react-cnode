@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { actionCreators } from './store'
 import { Redirect } from 'react-router-dom'
 import { LoginWrapper, Input, Button, LoginBack } from './style'
-import TopNav from './../topnav'
+import TopNav from './../../common/topnav'
 
 class Login extends PureComponent {
   render() {
