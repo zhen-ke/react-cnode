@@ -10,6 +10,8 @@ import Create from './pages/create'
 import Mine from './pages/mine'
 import Message from './pages/message'
 import ErrorPage from './common/errorPage'
+import Auth from './common/auth'
+// import Test from './common/test'
 
 class App extends Component {
   render() {
@@ -22,9 +24,10 @@ class App extends Component {
               <Route path="/detail/:id" component={Detail}></Route>
               <Route path="/user/:id" component={User}></Route>
               <Route path="/login" component={Login}></Route>
-              <Route path="/create" component={Create}></Route>
-              <Route path="/mine" component={Mine}></Route>
-              <Route path="/message" component={Message}></Route>
+              <Auth path="/create" component={Create}></Auth>
+              <Auth path="/mine" component={Mine}></Auth>
+              <Auth path="/message" component={Message}></Auth>
+              <Route path="/404" exact component={ErrorPage}/>
               <Route path="*" component={ ErrorPage } />
             </Switch>
           </Fragment>

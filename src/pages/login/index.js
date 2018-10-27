@@ -7,20 +7,18 @@ import TopNav from './../../common/topnav'
 
 class Login extends PureComponent {
   render() {
+    let { from } = this.props.location.state || { from: { pathname: '/' } }
     let { isLogined } = this.props
-    if (!isLogined) {
-      return (
-        <LoginBack>
-          <TopNav title={'登录'}></TopNav>
-          <LoginWrapper>
-            <Input placeholder='accessToken' ref={(input) => { this.username = input }} />
-            <Button onClick={() => { this.props.login(this.username) }}>登录</Button>
-          </LoginWrapper>
-        </LoginBack>
-      )
-    } else {
-      return <Redirect to='/' />
-    }
+    if (isLogined) return <Redirect to={from} />
+    return (
+      <LoginBack>
+        <TopNav title={'登录'}></TopNav>
+        <LoginWrapper>
+          <Input placeholder='accessToken' ref={(input) => { this.username = input }}  onChange={() => {}}value="fdc86f2d-b0e2-4dc2-a992-bbbb3f44e7de"/>
+          <Button onClick={() => { this.props.login(this.username) }}>登录</Button>
+        </LoginWrapper>
+      </LoginBack>
+    )
   }
 }
 

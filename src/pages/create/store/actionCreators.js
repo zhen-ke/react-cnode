@@ -1,4 +1,4 @@
-import { actionTypes } from './index'
+// import { actionTypes } from './index'
 // import { fromJS } from 'immutable';
 import axios from './../../../utils/http'
 import { T } from 'react-toast-mobile';

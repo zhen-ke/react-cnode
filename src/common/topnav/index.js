@@ -1,6 +1,8 @@
 import React, { PureComponent, Fragment } from 'react'
 import { TopNavWarpper, Back } from './style'
 import { withRouter } from 'react-router-dom'
+import { connect } from 'react-redux'
+import {actionCreators as loginActionCreators} from './../../pages/login/store'
 
 class TopNav extends PureComponent {
   render() {
@@ -21,7 +23,17 @@ class TopNav extends PureComponent {
   }
   quite() {
     localStorage.user = ''
-    this.props.history.push('/')
+    this.props.history.push("/")
+    this.props.logout()
   }
 }
-export default withRouter(TopNav)
+
+const mapDispatch = (dispatch) => {
+  return {
+    logout() {
+      dispatch(loginActionCreators.isLogined(false))
+    }
+  }
+}
+
+export default connect(null, mapDispatch)(withRouter(TopNav))

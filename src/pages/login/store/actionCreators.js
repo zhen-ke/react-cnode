@@ -3,6 +3,13 @@ import axios from './../../../utils/http'
 import { fromJS } from 'immutable';
 import { T } from 'react-toast-mobile';
 
+export const isLogined = (data) => {
+  return {
+    type: actionTypes.ISLOGINED,
+    data
+  }
+}
+
 export const login = (value) => {
   return (dispatch) => {
     axios.post("/accesstoken", {
@@ -11,8 +18,9 @@ export const login = (value) => {
       if (it.data.success) {
         dispatch({
           type: actionTypes.LOGIN,
-          data: fromJS(Object.assign(it.data, { accesstoken: value }))
+          data: fromJS(it.data)
         })
+        dispatch(isLogined(true))
         localStorage.user = JSON.stringify(Object.assign(it.data, { accesstoken: value }))
       } else {
         T.notify('accessToken错误')

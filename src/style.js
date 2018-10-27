@@ -73,7 +73,7 @@ export const GlobalStyle = createGlobalStyle`
     overflow:auto;
     vertical-align:top;
   }
-  input[type=text]:focus,textarea:focus{
+  input:focus,textarea:focus{
     outline:0 none;
   }
   table{

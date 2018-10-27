@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react'
-import { Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { actionCreators } from './store'
-import { CreateWrapper, CreateItem, CreateInput, CreateTextarea,CreateButton } from './style'
+import { CreateWrapper, CreateItem, CreateInput, CreateTextarea, CreateButton } from './style'
 import Footer from './../../common/footer'
 import TopNav from './../../common/topnav'
 import { T } from 'react-toast-mobile';
@@ -15,42 +14,38 @@ class Create extends PureComponent {
     this.handleChange = this.handleChange.bind(this);
   }
   render() {
-    let loginState = localStorage.user
     let { handleConfirm } = this.props
-    if (loginState) {
-      return (
-        <CreateWrapper>
-          <TopNav title={'创建主题'}></TopNav>
-          <form>
-            <CreateItem className="item">
-              <label>
-                <select value={this.state.value} onChange={this.handleChange}>
-                  <option value="">请选择发表类型</option>
-                  <option value="dev">客户端测试</option>
-                  <option value="ask">问答</option>
-                  <option value="share">分享</option>
-                  <option value="job">招聘</option>
-                </select>
-              </label>
-            </CreateItem>
-            <CreateItem className="item">
-              <CreateInput
-                ref={(input) => { this.title = input }}
-                placeholder="标题字数 10 字以上"></CreateInput>
-            </CreateItem>
-            <CreateItem className="item">
-              <CreateTextarea
-                ref={(textarea) => { this.content = textarea }}
-                placeholder="内容字数 30 字以上"></CreateTextarea>
-            </CreateItem>
-            <CreateButton type="button" onClick={() => { handleConfirm(this.state.value, this.title, this.content) }}>提交</CreateButton>
-          </form>
-          <Footer></Footer>
-        </CreateWrapper>
-      )
-    } else {
-      return <Redirect to='/login' />
-    }
+    return (
+      <CreateWrapper>
+        <TopNav title={'创建主题'}></TopNav>
+        <form>
+          <CreateItem className="item">
+            <label>
+              <select value={this.state.value} onChange={this.handleChange}>
+                <option value="">请选择发表类型</option>
+                <option value="dev">客户端测试</option>
+                <option value="ask">问答</option>
+                <option value="share">分享</option>
+                <option value="job">招聘</option>
+              </select>
+            </label>
+          </CreateItem>
+          <CreateItem className="item">
+            <CreateInput
+              ref={(input) => { this.title = input }}
+              placeholder="标题字数 10 字以上"></CreateInput>
+          </CreateItem>
+          <CreateItem className="item">
+            <CreateTextarea
+              ref={(textarea) => { this.content = textarea }}
+              placeholder="内容字数 30 字以上"></CreateTextarea>
+          </CreateItem>
+          <CreateButton type="button" onClick={() => { handleConfirm(this.state.value, this.title, this.content) }}>提交</CreateButton>
+        </form>
+        <Footer></Footer>
+      </CreateWrapper>
+    )
+
   }
   handleChange(event) {
     this.setState({ value: event.target.value });

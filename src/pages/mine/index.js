@@ -1,22 +1,25 @@
-import React, { PureComponent ,Fragment} from 'react'
-import { Redirect } from 'react-router-dom'
+import React, { PureComponent, Fragment } from 'react'
 import User from './../user'
 import Footer from './../../common/footer'
+import { connect } from 'react-redux'
 
 class Mine extends PureComponent {
   render() {
-    let loginState = localStorage.user
-    if(loginState) {
-      return (
-        <Fragment>
-          <User mine={JSON.parse(localStorage.user).loginname}></User>
-          <Footer></Footer>
-        </Fragment>
-        
-      )
-    }else {
-      return <Redirect to='/login' />
-    }
+    let { userInfo } = this.props
+    let newUserInfo = userInfo.toJS()
+    return (
+      <Fragment>
+        <User mine={newUserInfo.loginname || JSON.parse(localStorage.user).loginname}></User>
+        <Footer></Footer>
+      </Fragment>
+    )
   }
 }
-export default Mine
+
+const mapState = (state) => {
+  return {
+    userInfo: state.getIn(['login', 'login'])
+  }
+}
+
+export default connect(mapState, null)(Mine)

@@ -9,7 +9,9 @@ const defaultState = fromJS({
 const reducer = (state = defaultState, action) => {
   switch (action.type) {
     case actionTypes.LOGIN:
-      return state.set('login',action.data).set('isLogined',true)
+      return state.set('login', action.data)
+    case actionTypes.ISLOGINED:
+      return state.set('isLogined', action.data)
     default:
       return state
   }
