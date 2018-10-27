@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Footer from './../../common/footer'
 import TopNav from './../../common/topnav'
@@ -7,7 +7,7 @@ import { actionCreators } from './store'
 import { formatDate } from './../../utils'
 import { Link } from 'react-router-dom'
 
-class Message extends PureComponent {
+class Message extends Component {
   render() {
     let { messageList } = this.props
     let newMessageList = messageList.toJS()
@@ -67,7 +67,7 @@ class Message extends PureComponent {
   }
   componentDidMount() {
     let loginState = localStorage.user
-    if (loginState) {
+    if (this.props.isLogined || loginState) {
       this.props.getMessage()
     }
   }
@@ -75,7 +75,8 @@ class Message extends PureComponent {
 
 const mapState = (state) => {
   return {
-    messageList: state.getIn(['message', 'messageList'])
+    messageList: state.getIn(['message', 'messageList']),
+    isLogined: state.getIn(['login', 'isLogined'])
   }
 }
 
