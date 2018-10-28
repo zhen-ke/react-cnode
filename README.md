@@ -36,7 +36,7 @@ src
 │       ├── index.js
 │       └── style.js
 ├── index.js                          // 入口主文件
-├── pages// 视图组件
+├── pages                             // 视图组件
 │   ├── create                        // 添加帖子组件
 │   │   ├── index.js
 │   │   ├── store
@@ -61,7 +61,7 @@ src
 │   │   │   ├── index.js
 │   │   │   └── reducer.js
 │   │   └── style.js
-│   ├── login// 登录组件
+│   ├── login                         // 登录组件
 │   │   ├── index.js
 │   │   ├── store
 │   │   │   ├── actionCreators.js
@@ -115,7 +115,7 @@ src
 │   └── reducer.js                    // 导入各个组件的reducer并合成一个reducer
 ├── style.js                          // 全局样式
 └── utils                             // 工具函数
-    └── index.js
+    └── index.js                      // 格式化时间函数
 ```
 
 ### 功能
