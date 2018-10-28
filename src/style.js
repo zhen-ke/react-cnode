@@ -118,6 +118,25 @@ export const GlobalStyle = createGlobalStyle`
     color: #2c3e50;
   }
 `
+
+export const Icon = createGlobalStyle`
+@font-face {
+  font-family: "iconfont";
+  src: url('./statics/iconfont/iconfont.eot?t=1540736339447'); /* IE9*/
+  src: url('./statics/iconfont/iconfont.eot?t=1540736339447#iefix') format('embedded-opentype'), /* IE6-IE8 */
+  url('data:application/x-font-woff;charset=utf-8;base64,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') format('woff'),
+  url('./statics/iconfont/iconfont.ttf?t=1540736339447') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
+  url('./statics/iconfont/iconfont.svg?t=1540736339447#iconfont') format('svg'); /* iOS 4.1- */
+}
+.iconfont {
+  font-family:"iconfont" !important;
+  font-size:.3rem;
+  font-style:normal;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2px;
+  -moz-osx-font-smoothing: grayscale;
+}
+`
 export const GithubMarkdownCss = createGlobalStyle`
 @font-face {
   font-family: octicons-link;

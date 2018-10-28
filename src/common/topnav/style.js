@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import back from './../../statics/left.png'
 
 export const TopNavWarpper = styled.div`
   background: #0096ff;
@@ -31,8 +30,7 @@ export const TopNavWarpper = styled.div`
 `
 
 export const Back = styled.span`
-  width: .4rem;
-  height: .4rem;
-  background: url(${back}) no-repeat;
-  background-size: contain;
+  .iconfont {
+    font-size: .4rem;
+  }
 `
