@@ -113,8 +113,9 @@ src
 ├── store                             // redux
 │   ├── index.js                      // store
 │   └── reducer.js                    // 导入各个组件的reducer并合成一个reducer
-├── style.js                          // 全局样式
+├── style.js                          // 全局样式                   
 └── utils                             // 工具函数
+    ├── http.js                       // 全局 axios 配置
     └── index.js                      // 格式化时间函数
 ```
 
