@@ -8,10 +8,10 @@
 
 ### 项目截图
 
-![screenshot_1](./screenshot/screenshot_1.jpg)
-![screenshot_2](./screenshot/screenshot_2.jpg)
-![screenshot_3](./screenshot/screenshot_3.jpg)
-![screenshot_4](./screenshot/screenshot_4.jpg)
+![screenshot_1](./screenshot/screenshot_01.jpg)
+![screenshot_2](./screenshot/screenshot_02.jpg)
+![screenshot_3](./screenshot/screenshot_03.jpg)
+![screenshot_4](./screenshot/screenshot_04.jpg)
 
 ### 项目目录
 
