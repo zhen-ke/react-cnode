@@ -19,7 +19,7 @@ class Replies extends PureComponent {
               </RepliesTextarea>
               <RepliesButton onClick={() => { handleConfirm(id, replyId, author, this.content) }}>回复</RepliesButton>
             </Fragment>
-          ) : (<div className="login">你的丫先<Link to={'/login'} > 登录</Link> 才能发评论
+          ) : (<div className="login">你丫的先<Link to={'/login'} > 登录</Link> 才能发评论
           </div>)
         }
       </RepliesWrapper>

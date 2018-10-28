@@ -1,10 +1,12 @@
 # react-cnode
 
 ### 项目说明
+
 基于 react + react-router + redux + styled-components + ES6 的 React 版 cnode 社区
 
-### demo
- [demo](http://xmit.coding.me/react-cnode)
+### Demo
+
+ [Demo](http://xmit.coding.me/react-cnode)
 
 ### 项目截图
 
@@ -115,7 +117,9 @@ src
 └── utils                             // 工具函数
     └── index.js
 ```
+
 ### 功能
+
 ```
   - 登录功能
   - 列表分页，查看帖子详情
@@ -126,6 +130,7 @@ src
 ```
 
 ### 构建应用
+
 ``` bash
 # 安装依赖
 npm install
