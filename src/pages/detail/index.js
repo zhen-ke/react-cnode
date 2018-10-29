@@ -60,7 +60,7 @@ class Detail extends PureComponent {
                         {formatDate(it.create_at)}
                       </p>
                       <p className="r">
-                        <span className="replies" onClick={() => this.openReplies(index)}>回复</span>
+                        <span className="replies" onClick={() => this.openReplies(index)}> <i className="iconfont">&#xe609;</i> </span>
                         <span className="num"># {index + 1}</span>
                       </p>
                     </div>

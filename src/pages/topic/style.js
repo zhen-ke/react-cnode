@@ -71,13 +71,21 @@ export const TopicIContentFooter = styled.div`
   align-items: stretch;
   align-content: stretch;
   color: #888;
-  font-size: .26rem;
+  font-size: .24rem;
 `
 export const TopicIContentFooterLeft = styled.div`
+  .loginname {
+    max-width: 1.5rem;
+    display: inline-block;
+    overflow: hidden;
+    vertical-align: bottom;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
   .time {
     padding-left: .13rem;
     margin-left: .13rem;
-    border-left: 1px solid #888;
+    border-left: .02rem solid #888;
   }
 `
 export const TopicIContentFooterRight = styled.div`
