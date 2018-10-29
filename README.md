@@ -104,12 +104,12 @@ src
 │       │   └── reducer.js
 │       └── style.js
 ├── serviceWorker.js
-├── statics                           // 静态文件
-│   ├── create.png
-│   ├── home.png
-│   ├── left.png
-│   ├── message.png
-│   └── mine.png
+├── statics                           //静态文件
+│   └── iconfont
+│       ├── iconfont.eot
+│       ├── iconfont.svg
+│       ├── iconfont.ttf
+│       └── iconfont.woff
 ├── store                             // redux
 │   ├── index.js                      // store
 │   └── reducer.js                    // 导入各个组件的reducer并合成一个reducer
