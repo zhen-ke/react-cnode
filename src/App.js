@@ -5,13 +5,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom'; // BrowserRoute
 import Topic from './pages/topic'
 import Detail from './pages/detail'
 import User from './pages/user'
-import Login from './pages/login'
+import Login from './common/login'
 import Create from './pages/create'
 import Mine from './pages/mine'
 import Message from './pages/message'
 import ErrorPage from './common/errorPage'
 import Auth from './common/auth'
-// import Test from './common/test'
 
 class App extends Component {
   render() {

@@ -1,21 +1,11 @@
 import styled from 'styled-components'
 
 export const LoginBack = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  display: flex;
-	flex-direction: column;
-	flex-wrap: nowrap;
-	justify-content: center;
-	align-items: center;
-  align-content: stretch;
-  z-index: 0;
+
 `
 export const LoginWrapper = styled.div`
-  width: 5rem;  
+  width: 5rem;
+  margin: 5rem auto 0;
 `
 export const Input = styled.input`
   box-sizing: border-box;
