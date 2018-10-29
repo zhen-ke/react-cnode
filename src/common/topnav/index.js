@@ -12,7 +12,7 @@ class TopNav extends PureComponent {
         <TopNavWarpper>
           <Back onClick={() => this.goBack()}><i className="iconfont">&#xe664;</i></Back>
           {this.props.match.path === '/mine' ? (<span>个人中心</span>) : (<span>{this.props.title}</span>)}
-          {this.props.match.path === '/mine' && loginState ? (<span onClick={() => this.quite()}>退出</span>) : (<span></span>)}
+          {this.props.match.path === '/mine' && loginState ? (<span onClick={() => this.quite()}><i className="iconfont">&#xe61b;</i></span>) : (<span></span>)}
         </TopNavWarpper>
       </Fragment>
     )

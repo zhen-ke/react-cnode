@@ -18,6 +18,9 @@ export const TopNavWarpper = styled.div`
   line-height: 1;
   z-index: 999;
   span {
+    .iconfont {
+      font-size: .4rem;
+    }
     flex: 1;
     text-align: center;
     &:first-child {
