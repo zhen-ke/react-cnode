@@ -2,7 +2,7 @@ import React, { PureComponent, Fragment } from 'react'
 import { TopNavWarpper, Back } from './style'
 import { withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
-import {actionCreators as loginActionCreators} from './../../pages/login/store'
+import {actionCreators as loginActionCreators} from './../login/store'
 
 class TopNav extends PureComponent {
   render() {
