@@ -1,19 +1,27 @@
-import React, { PureComponent, Fragment } from 'react'
-import { connect } from 'react-redux'
-import { UserWrapper, UserTitle, UserContent, UserContentList, UserContentItem, UserInfo,UserContentNone } from './style'
-import { actionCreators } from './store'
-import { formatDate } from './../../utils'
-import { Link } from 'react-router-dom'
-import TopNav from './../../common/topnav'
+import React, { PureComponent, Fragment } from "react";
+import { connect } from "react-redux";
+import {
+  UserWrapper,
+  UserTitle,
+  UserContent,
+  UserContentList,
+  UserContentItem,
+  UserInfo,
+  UserContentNone
+} from "./style";
+import { actionCreators } from "./store";
+import { formatDate } from "./../../utils";
+import { Link } from "react-router-dom";
+import TopNav from "./../../common/topnav";
 
 class User extends PureComponent {
   render() {
-    let { userInfo } = this.props
+    let { userInfo } = this.props;
     if (userInfo.size > 0) {
-      let newUserInfo = userInfo.toJS()
+      let newUserInfo = userInfo.toJS();
       return (
         <Fragment>
-          <TopNav title={'用户详情'}></TopNav>
+          <TopNav title={"用户详情"} />
           <UserInfo>
             <img src={newUserInfo.avatar_url} alt="avatar_url" />
             <p className="user-name">{newUserInfo.loginname}</p>
@@ -28,10 +36,16 @@ class User extends PureComponent {
               {newUserInfo.recent_topics.length ? (
                 <UserContentList>
                   {newUserInfo.recent_topics.map((it, index) => {
-                    return (<UserContentItem key={index}><Link to={'/detail/' + it.id} >{it.title}</Link></UserContentItem>)
+                    return (
+                      <UserContentItem key={index}>
+                        <Link to={"/detail/" + it.id}>{it.title}</Link>
+                      </UserContentItem>
+                    );
                   })}
                 </UserContentList>
-              ) : (<UserContentNone>暂无话题</UserContentNone>)}
+              ) : (
+                <UserContentNone>暂无话题</UserContentNone>
+              )}
             </UserContent>
           </UserWrapper>
           <UserWrapper>
@@ -40,38 +54,46 @@ class User extends PureComponent {
               <UserContentList>
                 {newUserInfo.recent_replies.map((it, index) => {
                   return (
-                    <UserContentItem key={index}><Link to={'/detail/' + it.id} >{it.title}</Link></UserContentItem>)
+                    <UserContentItem key={index}>
+                      <Link to={"/detail/" + it.id}>{it.title}</Link>
+                    </UserContentItem>
+                  );
                 })}
               </UserContentList>
-            ) : (<UserContentNone>暂无话题</UserContentNone>)}
+            ) : (
+              <UserContentNone>暂无话题</UserContentNone>
+            )}
           </UserWrapper>
         </Fragment>
-      )
+      );
     } else {
-      return null
+      return null;
     }
   }
   componentDidMount() {
     try {
-      this.props.getUserInfo(this.props.match.params.id)
+      this.props.getUserInfo(this.props.match.params.id);
     } catch (e) {
-      this.props.getUserInfo(this.props.mine)
+      this.props.getUserInfo(this.props.mine);
     }
   }
 }
 
-const mapState = (state) => {
+const mapState = state => {
   return {
-    userInfo: state.getIn(['user', 'userInfo'])
-  }
-}
+    userInfo: state.getIn(["user", "userInfo"])
+  };
+};
 
-const mapDispatch = (dispatch) => {
+const mapDispatch = dispatch => {
   return {
     getUserInfo(id) {
-      dispatch(actionCreators.getUserInfo(id))
+      dispatch(actionCreators.getUserInfo(id));
     }
-  }
-}
+  };
+};
 
-export default connect(mapState, mapDispatch)(User)
+export default connect(
+  mapState,
+  mapDispatch
+)(User);

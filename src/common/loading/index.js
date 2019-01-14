@@ -1,12 +1,12 @@
-import React from 'react'
-import { Spinner, BounceTop, BounceBottom } from './style'
+import React from "react";
+import { Spinner, BounceTop, BounceBottom } from "./style";
 
 const Loading = () => {
   return (
     <Spinner>
-      <BounceTop></BounceTop>
-      <BounceBottom></BounceBottom>
+      <BounceTop />
+      <BounceBottom />
     </Spinner>
-  )
-}
-export default Loading
+  );
+};
+export default Loading;
