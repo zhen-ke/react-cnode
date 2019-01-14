@@ -41,9 +41,9 @@ src
 │   │   ├── index.js
 │   │   ├── store
 │   │   │   ├── actionCreators.js     // 提交 action
-│   │   │   ├── actionTypes.js        // 定义的 action types 常量
-│   │   │   ├── index.js              // 处理数据
-│   │   │   └── reducer.js            // 导出 actionCreators actionTypes reducer
+│   │   │   ├── actionTypes.js        // 定义 action types 常量
+│   │   │   ├── index.js              // 导出 actionCreators、actionTypes、reducer
+│   │   │   └── reducer.js            // 处理数据
 │   │   └── style.js
 │   ├── detail                        // 帖子详情组件
 │   │   ├── index.js
