@@ -142,3 +142,9 @@ npm start
 # 打包项目（打包完成后项目会存放到build目录下）
 npm run build
 ```
+
+### 赞助我
+
+如果觉得这些内容不错，请我喝杯咖啡吧。
+
+![pay](./screenshot/pay.png)
