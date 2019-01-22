@@ -18,6 +18,8 @@ class Create extends PureComponent {
     this.state = { value: "" };
 
     this.handleChange = this.handleChange.bind(this);
+    // 创建 ref 存储 Input DOM 元素
+    this.title = React.createRef()
   }
   render() {
     let { handleConfirm } = this.props;
@@ -37,17 +39,15 @@ class Create extends PureComponent {
             </label>
           </CreateItem>
           <CreateItem className="item">
-            <CreateInput
-              ref={input => {
-                this.title = input;
-              }}
+            <CreateInput 
+              ref={this.title} // React v16.3 引入的 React.createRef() API 更新
               placeholder="标题字数 10 字以上"
             />
           </CreateItem>
           <CreateItem className="item">
             <CreateTextarea
               ref={textarea => {
-                this.content = textarea;
+                this.content = textarea; // 回调形式的 refs
               }}
               placeholder="内容字数 30 字以上"
             />
@@ -55,7 +55,7 @@ class Create extends PureComponent {
           <CreateButton
             type="button"
             onClick={() => {
-              handleConfirm(this.state.value, this.title, this.content);
+              handleConfirm(this.state.value, this.title.current.value, this.content);
             }}
           >
             提交
