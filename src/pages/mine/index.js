@@ -11,7 +11,7 @@ class Mine extends PureComponent {
       <Fragment>
         <User
           mine={
-            newUserInfo.loginname || JSON.parse(localStorage.user).loginname
+            newUserInfo.loginname || JSON.parse(localStorage.user || '{}').loginname
           }
         />
         <Footer />
