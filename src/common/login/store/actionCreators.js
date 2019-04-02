@@ -10,6 +10,13 @@ export const isLogined = (data) => {
   }
 }
 
+export const savePath = (data) => {
+  return {
+    type: actionTypes.SAVE_PATH,
+    data
+  }
+}
+
 export const login = (value) => {
   return (dispatch) => {
     axios.post("/accesstoken", {

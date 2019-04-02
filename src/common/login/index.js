@@ -7,8 +7,9 @@ import TopNav from "./../topnav";
 
 class Login extends PureComponent {
   render() {
-    let { from } = this.props.location.state || { from: { pathname: "/" } };
-    let { isLogined } = this.props;
+    let { isLogined, path } = this.props;
+    let from = path ? { pathname: path } : { pathname: "/" };
+    console.log(from);
     if (isLogined) return <Redirect to={from} />;
     return (
       <LoginBack>
@@ -35,7 +36,8 @@ class Login extends PureComponent {
 
 const mapState = state => {
   return {
-    isLogined: state.getIn(["login", "isLogined"])
+    isLogined: state.getIn(["login", "isLogined"]),
+    path: state.getIn(["login", "path"])
   };
 };
 
