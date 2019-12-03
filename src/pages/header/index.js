@@ -1,35 +1,48 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { connect } from "react-redux";
 import { HeaderWrapper, NavList, NavItem } from "./style";
 import { actionCreators } from "./store";
 import { actionCreators as topicActionCreators } from "./../topic/store";
 import { Link } from "react-router-dom";
 
-class Header extends Component {
-  render() {
-    let { navList, changeTab } = this.props;
-    let newNavList = navList.toJS();
-    return (
-      <HeaderWrapper>
-        <NavList>
-          {newNavList.map(it => {
-            return (
-              <NavItem key={it.type} onClick={() => changeTab(it.type)}>
-                <Link to={"/?tab=" + it.type}>{it.text}</Link>
-              </NavItem>
-            );
-          })}
-        </NavList>
-      </HeaderWrapper>
-    );
-  }
-}
+function Header({ changeTab }) {
+  const [toplist, setTopList] = useState([
+    {
+      type: "all",
+      text: "全部"
+    },
+    {
+      type: "good",
+      text: "精华"
+    },
+    {
+      type: "share",
+      text: "分享"
+    },
+    {
+      type: "ask",
+      text: "问答"
+    },
+    {
+      type: "job",
+      text: "招聘"
+    }
+  ]);
 
-const mapState = state => {
-  return {
-    navList: state.getIn(["header", "navList"])
-  };
-};
+  return (
+    <HeaderWrapper>
+      <NavList>
+        {toplist.map(it => {
+          return (
+            <NavItem key={it.type} onClick={() => changeTab(it.type)}>
+              <Link to={"/?tab=" + it.type}>{it.text}</Link>
+            </NavItem>
+          );
+        })}
+      </NavList>
+    </HeaderWrapper>
+  );
+}
 
 const mapDispatch = dispatch => {
   return {
@@ -43,7 +56,4 @@ const mapDispatch = dispatch => {
   };
 };
 
-export default connect(
-  mapState,
-  mapDispatch
-)(Header);
+export default connect(null, mapDispatch)(Header);

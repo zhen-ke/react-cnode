@@ -1,4 +1,4 @@
-import React, { PureComponent, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import { connect } from "react-redux";
 import {
   TopicWrapper,
@@ -18,86 +18,78 @@ import Header from "./../header";
 import Footer from "./../../common/footer";
 import { Link } from "react-router-dom";
 
-class Topic extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.state = {
-      tab: {
-        good: "精华",
-        share: "分享",
-        ask: "问答",
-        job: "招聘"
-      }
-    };
-  }
-  render() {
-    let { getTopic, topicList, page, limit, tab, hasMore } = this.props;
-    let newTopicList = topicList.toJS();
-    const Top = (it, tab) => {
-      if (it.top) {
-        return <span className="top">置顶</span>;
-      } else if (tab === "good") {
-        return <span className="top">精华</span>;
-      } else {
-        return <span>{this.state.tab[it.tab]}</span>;
-      }
-    };
-    return (
-      <Fragment>
-        <Header />
-        <TopicWrapper>
-          <InfiniteScroll
-            pageStart={1}
-            loadMore={() => getTopic(hasMore, page, limit, tab)}
-            hasMore={hasMore}
-          >
-            <TopicList>
-              {newTopicList.map((it, index) => {
-                return (
-                  <TopicItem key={index}>
-                    <Link to={"/detail/" + it.id}>
-                      <TopicIMedia>
-                        <img
-                          className="author"
-                          src={it.author.avatar_url}
-                          alt="author"
-                        />
-                      </TopicIMedia>
-                      <TopicIContent>
-                        <h4 className="title">
-                          {Top(it, tab)}
-                          {it.title}
-                        </h4>
-                        <TopicIContentFooter>
-                          <TopicIContentFooterLeft>
-                            <span className="loginname">
-                              {it.author.loginname}
-                            </span>
-                            <span className="time">
-                              创建于{formatDate(it.create_at)}
-                            </span>
-                          </TopicIContentFooterLeft>
-                          <TopicIContentFooterRight>
-                            <span className="time">
-                              {formatDate(it.last_reply_at)}
-                            </span>
-                            <span className="reply-count">
-                              {it.reply_count} / {it.visit_count}
-                            </span>
-                          </TopicIContentFooterRight>
-                        </TopicIContentFooter>
-                      </TopicIContent>
-                    </Link>
-                  </TopicItem>
-                );
-              })}
-            </TopicList>
-          </InfiniteScroll>
-        </TopicWrapper>
-        <Footer />
-      </Fragment>
-    );
-  }
+function Topic({ getTopic, topicList, page, limit, tab, hasMore }) {
+  const [stateTab, setstateTab] = useState({
+    good: "精华",
+    share: "分享",
+    ask: "问答",
+    job: "招聘"
+  });
+  let newTopicList = topicList.toJS();
+  const Top = (it, tab) => {
+    if (it.top) {
+      return <span className="top">置顶</span>;
+    } else if (tab === "good") {
+      return <span className="top">精华</span>;
+    } else {
+      return <span>{stateTab[it.tab]}</span>;
+    }
+  };
+  return (
+    <Fragment>
+      <Header />
+      <TopicWrapper>
+        <InfiniteScroll
+          pageStart={1}
+          loadMore={() => getTopic(hasMore, page, limit, tab)}
+          hasMore={hasMore}
+        >
+          <TopicList>
+            {newTopicList.map((it, index) => {
+              return (
+                <TopicItem key={index}>
+                  <Link to={"/detail/" + it.id}>
+                    <TopicIMedia>
+                      <img
+                        className="author"
+                        src={it.author.avatar_url}
+                        alt="author"
+                      />
+                    </TopicIMedia>
+                    <TopicIContent>
+                      <h4 className="title">
+                        {Top(it, tab)}
+                        {it.title}
+                      </h4>
+                      <TopicIContentFooter>
+                        <TopicIContentFooterLeft>
+                          <span className="loginname">
+                            {it.author.loginname}
+                          </span>
+                          <span className="time">
+                            创建于{formatDate(it.create_at)}
+                          </span>
+                        </TopicIContentFooterLeft>
+                        <TopicIContentFooterRight>
+                          <span className="time">
+                            {formatDate(it.last_reply_at)}
+                          </span>
+                          <span className="reply-count">
+                            {it.reply_count} / {it.visit_count}
+                          </span>
+                        </TopicIContentFooterRight>
+                      </TopicIContentFooter>
+                    </TopicIContent>
+                  </Link>
+                </TopicItem>
+              );
+            })}
+          </TopicList>
+        </InfiniteScroll>
+      </TopicWrapper>
+      <Footer />
+    </Fragment>
+  );
 }
 
 const mapState = state => {
@@ -120,7 +112,4 @@ const mapDispatch = dispatch => {
   };
 };
 
-export default connect(
-  mapState,
-  mapDispatch
-)(Topic);
+export default connect(mapState, mapDispatch)(Topic);
