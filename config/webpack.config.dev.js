@@ -10,8 +10,14 @@ module.exports = merge(baseConfig, {
     contentBase: path.resolve(__dirname, "../dist"),
     port: 8080,
     historyApiFallback: true,
-    hot: true
+    hot: true,
     // hotOnly: true
+  },
+  stats: {
+    assets: false,
+    builtAt: false,
+    modules: false,
+    entrypoints: false,
   },
   module: {
     rules: [
@@ -19,18 +25,18 @@ module.exports = merge(baseConfig, {
         test: /\.(css)$/,
         use: [
           {
-            loader: "style-loader"
+            loader: "style-loader",
           },
           { loader: "css-loader" },
           {
             loader: "postcss-loader", // 添加私有属性
             options: {
-              plugins: [require("autoprefixer")({})]
-            }
-          }
-        ]
-      }
-    ]
+              plugins: [require("autoprefixer")({})],
+            },
+          },
+        ],
+      },
+    ],
   },
-  plugins: [new webpack.HotModuleReplacementPlugin()]
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 });
